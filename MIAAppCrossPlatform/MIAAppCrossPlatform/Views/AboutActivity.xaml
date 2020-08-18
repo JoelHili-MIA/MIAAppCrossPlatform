@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MIAAppCrossPlatform.Views.AboutActivity">
+
+    <ContentPage.Content>
+        <ScrollView
+            WidthRequest="FillAndExpand"
+            HeightRequest="651"
+            VerticalOptions="Fill"
+            Margin="0, 0, 0, 0">
+
+            <StackLayout
+                WidthRequest="FillAndExpand"
+                HeightRequest="Center">
+
+                <Label
+                    ClassId="terms_and_conditions"
+                    WidthRequest="FillAndExpand"
+                    HeightRequest="Center"
+                    Margin="30, 30, 30, 10"
+                    Text="MIA Terms and Conditions"
+                    FontAttributes="Bold"
+                    FontSize="18"/>
+
+                <Label
+                    ClassId="tos"
+                    WidthRequest="FillAndExpand"
+                    HeightRequest="Center"
+                    Margin="50, 0, 30, 10"
+                    Text="Terms and Conditions"
+                    FontSize="15"/>
+
+                <Label
+                    ClassId="privacyPolicy"
+                    WidthRequest="FillAndExpand"
+                    HeightRequest="Center"
+                    Margin="30, 20, 30, 10"
+                    Text="MIA Privacy Policy"
+                    FontAttributes="Bold"
+                    FontSize="18"/>
+
+                <Label
+                    ClassId="privacyPolicyText"
+                    WidthRequest="FillAndExpand"
+                    HeightRequest="Center"
+                    Margin="50, 0, 50, 10"
+                    Text="Privacy Policy"
+                    FontSize="15"/>
+
+                <Label
+                    ClassId="appInstruct"
+                    WidthRequest="FillAndExpand"
+                    HeightRequest="Center"
+                    Margin="27, 20, 33, 10"
+                    Text="MIA Application Instructions"
+                    FontAttributes="Bold"
+                    FontSize="18"/>
+
+                <Label
+                    ClassId="appInstructionsText"
+                    WidthRequest="FillAndExpand"
+                    HeightRequest="Center"
+                    Margin="50, 0 ,50, 10"
+                    Text="Instructions"
+                    FontSize="15"/>
+
+                <RelativeLayout
+                    ClassId="contactDetails"
+                    WidthRequest="FillAndExpand"
+                    HeightRequest="Center"
+                    Margin="0, 0, 0, 0">
+
+                    <Grid>
+                        
+                    </Grid>
+                </RelativeLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
