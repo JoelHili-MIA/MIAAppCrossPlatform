@@ -4,23 +4,30 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:local="clr-namespace:MIAAppCrossPlatform"
              x:Class="MIAAppCrossPlatform.Views.AboutActivity">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Name="BackButton"
+            Icon="BackIcon"/>
+    </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <ScrollView
-            WidthRequest="FillAndExpand"
-            HeightRequest="651"
-            VerticalOptions="Fill"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
             Margin="0, 0, 0, 0">
 
             <StackLayout
-                WidthRequest="FillAndExpand"
-                HeightRequest="Center">
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Fill">
 
                 <Label
                     ClassId="terms_and_conditions"
-                    WidthRequest="FillAndExpand"
-                    HeightRequest="Center"
+                    HeightRequest="20"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start"
                     Margin="30, 30, 30, 10"
                     Text="MIA Terms and Conditions"
                     FontAttributes="Bold"
@@ -28,16 +35,16 @@
 
                 <Label
                     ClassId="tos"
-                    WidthRequest="FillAndExpand"
-                    HeightRequest="Center"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Fill"
                     Margin="50, 0, 30, 10"
                     Text="Terms and Conditions"
                     FontSize="15"/>
 
                 <Label
                     ClassId="privacyPolicy"
-                    WidthRequest="FillAndExpand"
-                    HeightRequest="Center"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start"
                     Margin="30, 20, 30, 10"
                     Text="MIA Privacy Policy"
                     FontAttributes="Bold"
@@ -45,16 +52,16 @@
 
                 <Label
                     ClassId="privacyPolicyText"
-                    WidthRequest="FillAndExpand"
-                    HeightRequest="Center"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Fill"
                     Margin="50, 0, 50, 10"
                     Text="Privacy Policy"
                     FontSize="15"/>
 
                 <Label
                     ClassId="appInstruct"
-                    WidthRequest="FillAndExpand"
-                    HeightRequest="Center"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start"
                     Margin="27, 20, 33, 10"
                     Text="MIA Application Instructions"
                     FontAttributes="Bold"
@@ -62,20 +69,52 @@
 
                 <Label
                     ClassId="appInstructionsText"
-                    WidthRequest="FillAndExpand"
-                    HeightRequest="Center"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Fill"
                     Margin="50, 0 ,50, 10"
                     Text="Instructions"
                     FontSize="15"/>
+                
 
                 <RelativeLayout
                     ClassId="contactDetails"
-                    WidthRequest="FillAndExpand"
-                    HeightRequest="Center"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
                     Margin="0, 0, 0, 0">
 
                     <Grid>
-                        
+                        <Label
+                            ClassId="contact_details"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Start"
+                            Margin="30, 20, 30, 10"
+                            Text="MIA Administration Contact Details"
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            Grid.Row="0"
+                            Grid.ColumnSpan="10"
+                            Grid.Column="0"/>
+
+                        <Image
+                            ClassId="address"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Start"
+                            Margin="50, 10, 10, 10"
+                            
+                            Grid.Column="0"
+                            Grid.ColumnSpan="1"
+                            Grid.Row="1"/>
+
+                        <Label
+                            ClassId="Address"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Fill"
+                            Grid.Column="3"
+                            Grid.ColumnSpan="6"
+                            Grid.Row="1"
+                            Text="Suite 4, Level 1, Tower Business Centre Tower Street, Swatar, Malta"
+                            />
+
                     </Grid>
                 </RelativeLayout>
             </StackLayout>

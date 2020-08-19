@@ -11,6 +11,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Icons\accountCircle.png" />
+    <EmbeddedResource Include="Icons\close.png" />
+    <EmbeddedResource Include="Icons\creditCard.png" />
+    <EmbeddedResource Include="Icons\email.png" />
+    <EmbeddedResource Include="Icons\favoriteEmpty.png" />
+    <EmbeddedResource Include="Icons\favoriteFilled.png" />
+    <EmbeddedResource Include="Icons\home.png" />
+    <EmbeddedResource Include="Icons\info.png" />
+    <EmbeddedResource Include="Icons\list.png" />
+    <EmbeddedResource Include="Icons\mobilePhone.png" />
+    <EmbeddedResource Include="Icons\person.png" />
+    <EmbeddedResource Include="Icons\phone.png" />
+    <EmbeddedResource Include="Icons\search.png" />
+    <EmbeddedResource Include="Icons\star.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
