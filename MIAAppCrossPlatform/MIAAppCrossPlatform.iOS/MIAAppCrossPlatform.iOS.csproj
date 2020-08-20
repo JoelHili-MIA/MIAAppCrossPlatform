@@ -11,7 +11,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>MIAAppCrossPlatform.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>MIAAppCrossPlatform.iOS</AssemblyName>
+    <AssemblyName>MIA Privelege Scheme</AssemblyName>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <ProvisioningType>automatic</ProvisioningType>
@@ -62,6 +62,15 @@
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>MIA Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MIAAppCrossPlatform.iOS.Application</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -260,6 +269,12 @@
     <ImageAsset Include="Assets.xcassets\BackIcon.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\PersonIcon.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -379,5 +394,8 @@
       <Project>{7DD4FA58-14C8-4BE0-BC7A-73C7A64463AB}</Project>
       <Name>MIAAppCrossPlatform</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MIA Icon.ico" />
   </ItemGroup>
 </Project>
