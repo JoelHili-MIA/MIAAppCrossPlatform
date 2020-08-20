@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MIAAppCrossPlatform.Views.EditDetailsActivity">
+    <ContentPage.Content>
+        <ScrollView
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            >
+
+            <StackLayout
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+
+                <Label
+                    ClassId="text_first_name"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Margin="24, 40, 24, 0"
+                    Text="First Name:"
+                    FontSize="20"
+                    FontAttributes="Bold"/>
+
+                <Entry
+                    ClassId="edit_first_name"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center"
+                    Margin="32, 0, 32, 0"
+                    IsPassword="False"
+                    Placeholder="First Name"/>
+
+                <Label
+                    ClassId="text_last_name"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Margin="24, 32, 24, 0"
+                    Text="Last Name:"
+                    FontSize="20"
+                    FontAttributes="Bold"/>
+
+                <Entry
+                    ClassId="edit_last_name"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center"
+                    Margin="32, 0, 32, 0"
+                    IsPassword="False"
+                    Placeholder="Last Name"/>
+
+                <Label
+                    ClassId="text_email"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Margin="24, 32, 24, 0"
+                    Text="Email:"
+                    FontSize="20"
+                    FontAttributes="Bold"/>
+
+                <Entry
+                    ClassId="edit_email"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center"
+                    Margin="32, 0, 32, 0"
+                    IsPassword="False"
+                    Placeholder="Email"/>
+
+                <Label
+                    ClassId="text_mobile_number"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Margin="24, 32, 24, 0"
+                    Text="Mobile Number:"
+                    FontSize="20"
+                    FontAttributes="Bold"/>
+
+                <Entry
+                    ClassId="edit_mobil_number"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center"
+                    Margin="32, 0, 32, 0"
+                    IsPassword="False"
+                    Placeholder="Mobile Number"/>
+
+                <Button
+                    ClassId="save_new_details"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center"
+                    Margin="90, 50, 90, 0"
+                    Text="Save"
+                    BackgroundColor="#AA0A2F"
+                    TextColor="White"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
