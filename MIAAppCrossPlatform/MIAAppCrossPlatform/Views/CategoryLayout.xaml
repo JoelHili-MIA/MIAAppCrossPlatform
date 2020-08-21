@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Height="100"
+             x:Class="MIAAppCrossPlatform.Views.CategoryLayout">
+  <ViewCell.View>
+        <StackLayout
+            Orientation="Horizontal"
+            Margin="8, 4, 8, 6">
+
+            <Image
+                ClassId="category_image_icon"
+                WidthRequest="70"
+                HeightRequest="80"
+                HorizontalOptions="Start"
+                Margin="15, 5, 0, 5"
+                Source=""
+                BackgroundColor=""/>
+
+            <View
+                WidthRequest="1"
+                VerticalOptions="Fill"
+                Margin="15, 5, 10, 5"
+                BackgroundColor="Black"/>
+
+            <Label
+                ClassId="category_name"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
+                HorizontalTextAlignment="Start"
+                Margin="5, 25, 10, 0"
+                TextColor="Black"
+                Text="entry name"
+                FontSize="18"/>
+        </StackLayout>
+  </ViewCell.View>
+</ViewCell>
