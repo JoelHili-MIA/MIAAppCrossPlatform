@@ -16,9 +16,11 @@
     <ContentPage 
         IconImageSource="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\favoriteFilled.png"
         Title="Favorites"/>
+    
     <ContentPage 
         IconImageSource="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\info.png"
         Title="Info"/>
+    
     <ContentPage
         IconImageSource="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\person.png"
         Title="Profile"/>
