@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MIAAppCrossPlatform.Views.PartnerActivity">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            ClassId="add_to_favorites"
+            Clicked=""
+            IconImageSource="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\favoriteEmpty.png"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                ClassId="P_name"
+                HorizontalOptions="Fill"
+                VerticalOptions="Start"
+                Margin="30, 20, 30, 0"
+                FontSize="28"
+                Text="Partner Name"/>
+
+            <View
+                ClassId="devider"
+                HorizontalOptions="Fill"
+                HeightRequest="1"
+                Margin="20, 20, 20, 0"
+                BackgroundColor="Black"/>
+
+            <ScrollView
+                ClassId="scrollView"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
+                Margin="20, 20, 20, 8"
+                BackgroundColor="#C6C6C6"
+                VerticalScrollBarVisibility="Always">
+
+                <StackLayout
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill">
+                    
+                    <Label
+                        ClassId="pa_address"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Start"
+                        Margin="20, 10, 10, 10"
+                        HorizontalTextAlignment="Start"
+                        Text="Address"
+                        FontSize="20"
+                        FontAttributes="Bold"/>
+
+                    <Label
+                        ClassId="pa_addressData"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Start"
+                        Margin="50, 5, 10, 15"
+                        HorizontalTextAlignment="Start"
+                        Text="Address Data"
+                        FontSize="18"/>
+
+                    <Label
+                        ClassId="pa_email"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Start"
+                        Margin="20, 10, 10, 10"
+                        HorizontalTextAlignment="Start"
+                        Text="Email"
+                        FontSize="20"
+                        FontAttributes="Bold"/>
+
+                    <Label
+                        ClassId="pa_emailData"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Start"
+                        Margin="50, 5, 10, 15"
+                        HorizontalTextAlignment="Start"
+                        Text="Email Data"
+                        FontSize="18"/>
+
+                    <Label
+                        ClassId="pa_telephone"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Start"
+                        Margin="20, 10, 10, 10"
+                        HorizontalTextAlignment="Start"
+                        Text="Telephone"
+                        FontSize="20"
+                        FontAttributes="Bold"/>
+
+                    <Label
+                        ClassId="pa_telephoneData"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Start"
+                        Margin="50, 5, 10, 15"
+                        HorizontalTextAlignment="Start"
+                        Text="Telephone Data"
+                        FontSize="18"/>
+
+                    <Label
+                        ClassId="pa_website"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Start"
+                        Margin="20, 10, 10, 10"
+                        HorizontalTextAlignment="Start"
+                        Text="Website"
+                        FontSize="20"
+                        FontAttributes="Bold"/>
+
+                    <Label
+                        ClassId="pa_websiteData"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Start"
+                        Margin="50, 5, 10, 15"
+                        HorizontalTextAlignment="Start"
+                        Text="Website Data"
+                        FontSize="18"/>
+
+                    <Label
+                        ClassId="pa_tos"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Start"
+                        Margin="20, 10, 10, 10"
+                        HorizontalTextAlignment="Start"
+                        Text="Terms and Conditions"
+                        FontSize="20"
+                        FontAttributes="Bold"/>
+
+                    <Label
+                        ClassId="pa_tosData"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Start"
+                        Margin="50, 5, 10, 15"
+                        HorizontalTextAlignment="Start"
+                        Text="ToS Data"
+                        FontSize="18"/>
+                </StackLayout>
+            </ScrollView>
+
+            <View
+                ClassId="devider2"
+                HorizontalOptions="Fill"
+                HeightRequest="1"
+                Margin="20, 20, 20, 0"
+                BackgroundColor="Black"/>
+
+            <StackLayout
+                ClassId="rl_container"
+                WidthRequest="0"
+                HeightRequest="0"
+                Margin="0, 20, 0, 0"
+                IsVisible="false">
+
+                <Label
+                    ClassId="ListOfOffers"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Start"
+                    Margin="0, 20, 0, 0"
+                    Text="Avaliable Offers:"
+                    HorizontalTextAlignment="Center"
+                    TextColor="Black"
+                    FontSize="32"/>
+
+                <Label
+                    ClassId="tv_noResults"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center"
+                    Margin="10, 15, 10, 0"
+                    Text="no offers"
+                    HorizontalTextAlignment="Center"
+                    TextColor="Black"
+                    FontSize="16"
+                    IsVisible="false"/>
+
+                <ListView
+                    ClassId="partner_offer_layout"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    Margin="0, 25, 0, 80"
+                    BackgroundColor="White"
+                    SeparatorColor="#AA0A2F">
+                    
+                </ListView>
+            </StackLayout>
+
+            <Button
+                ClassId="show_offers"
+                WidthRequest="212"
+                HeightRequest="62"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Margin="100, 5, 100, 15"
+                Text="Show Offers"
+                FontSize="12"
+                BackgroundColor="#AA0A2F"
+                TextColor="White"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
