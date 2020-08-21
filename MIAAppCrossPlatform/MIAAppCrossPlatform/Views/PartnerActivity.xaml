@@ -193,7 +193,6 @@
                 VerticalOptions="Center"
                 Margin="100, 5, 100, 15"
                 Text="Show Offers"
-                FontSize="12"
                 BackgroundColor="#AA0A2F"
                 TextColor="White"/>
         </StackLayout>
