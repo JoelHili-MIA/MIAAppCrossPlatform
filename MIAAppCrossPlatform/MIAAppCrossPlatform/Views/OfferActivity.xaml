@@ -33,7 +33,7 @@
                     HeightRequest="100"
                     Margin="50, 20, 50, 15"
                     Source="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform.Android\Resources\drawable\xamarin_logo.png"
-                    BackgroundColor="Black"/>
+                    BackgroundColor=""/>
 
                 <Label
                     ClassId="tv_offer"
