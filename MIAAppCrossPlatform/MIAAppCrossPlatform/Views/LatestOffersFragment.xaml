@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             mc:Ignorable="d"
+             x:Class="MIAAppCrossPlatform.Views.LatestOffersFragment">
+  <ContentView.Content>
+        <Grid>
+            <Label
+                ClassId="tv_infoBox"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Start"
+                Margin="15, 20, 15, 0 "
+                Grid.Row="0"
+                Text="Latest Offer:"
+                FontSize="18"
+                FontAttributes="Bold"/>
+
+            <Label
+                ClassId="tv_noLatest"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Start"
+                IsVisible="False"
+                Margin="17, 22, 12, 0"
+                Grid.Row="1"
+                Text="There are currently no latest offers to dispaly!"
+                VerticalTextAlignment="Center"
+                FontSize="16"/>
+
+            <ListView
+                ClassId="latestView"
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="175"
+                Margin="20, 15, 20, 0"
+                Grid.Row="1"/>
+
+            <Label
+                ClassId="tv_infoBox2"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Start"
+                Margin="15, 15, 14, 0 "
+                Grid.Row="2"
+                Text="Locations:"
+                FontSize="18"
+                FontAttributes="Bold"/>
+
+            <map:Map
+                ClassId="mapView"
+                HorizontalOptions="Fill"
+                VerticalOptions="FillAndExpand"
+                Margin="40,20,40,60"
+                Grid.Row="3"
+                Grid.RowSpan="2"/>
+        </Grid>
+  </ContentView.Content>
+</ContentView>
