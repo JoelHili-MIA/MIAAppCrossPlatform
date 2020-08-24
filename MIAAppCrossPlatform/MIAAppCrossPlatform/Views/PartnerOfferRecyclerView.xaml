@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MIAAppCrossPlatform.Views.PartnerOfferRecyclerView">
+  <ViewCell.View>
+      <StackLayout
+          Margin="20, 10, 20, 8"
+          Padding="10">
+
+            <Label
+                ClassId="offer_name"
+                HorizontalOptions="Fill"
+                VerticalOptions="Start"
+                Margin="0, 0, 0, 0"
+                HorizontalTextAlignment="Center"
+                FontSize="16"/>
+        </StackLayout>
+  </ViewCell.View>
+</ViewCell>
