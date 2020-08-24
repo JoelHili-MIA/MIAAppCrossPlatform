@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MIAAppCrossPlatform.Views.LoginFragment">
+  <ContentView.Content>
+        <RelativeLayout>
+            <StackLayout
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
+
+                <ScrollView
+                    ClassId="svLogin"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Start">
+
+                    <StackLayout>
+                        <Image
+                            ClassId="imageView3"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Start"
+                            Margin="100, 30, 100, 25"
+                            Source="C:\Users\djult\Source\Repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\Logo.png"/>
+
+                        <Label
+                            ClassId="tv_title"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Start"
+                            Margin="15, 15, 8, 0"
+                            Text="MIA- Privilege Scheme"
+                            HorizontalTextAlignment="Center"
+                            FontSize="26"
+                            FontAttributes="Bold"/>
+
+                        <Label
+                            ClassId="tv_subtitle"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Start"
+                            Margin="0, 0, 0, 20"
+                            Text="Sign in your MIA account!"
+                            HorizontalTextAlignment="Center"
+                            FontSize="17"/>
+
+                        <Entry
+                            ClassId="et_idCard"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Center"
+                            Margin="30, 0, 30, 8"
+                            Placeholder="ID Card"
+                            FontSize="15"
+                            MaxLength="8"/>
+
+                        <Entry
+                            ClassId="et_password"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Center"
+                            Margin="30, 0, 30, 8"
+                            Placeholder="Password"
+                            IsPassword="True"
+                            FontSize="15"/>
+
+                        <Grid
+                            ClassId="containerFeature"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Center"
+                            HeightRequest="50"
+                            Margin="25, 0, 25, 20">
+
+                            <CheckBox
+                                ClassId="chkRemember"
+                                HorizontalOptions="End"
+                                WidthRequest="165"
+                                HeightRequest="49"
+                                Grid.Column="0"
+                                Margin="0, 1, 0, 0"
+                                Color="#AA0A2F"/>
+
+                            <Label
+                                ClassId="chkRemember_text"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="3"
+                                Text="Remember me"
+                                MaxLines="1"/>
+                            
+                            <Button
+                                ClassId="btn_forgotPassword"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="End"
+                                Grid.Column="4"
+                                Grid.ColumnSpan="4"
+                                Text="Forgot Password"
+                                BackgroundColor="#AA0A2F"
+                                TextColor="White"/>
+                        </Grid>
+                    </StackLayout>
+                </ScrollView>
+
+               <View
+                    ClassId="divider"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Start"
+                    HeightRequest="0.5"
+                    BackgroundColor="Black"/>
+
+                <Button
+                    ClassId="btn_login"
+                    WidthRequest="120"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Margin="8, 20, 8, 20"
+                    Text="Sign in"
+                    FontSize="16"
+                    BackgroundColor="#AA0A2F"
+                    TextColor="White"/>
+                    
+            </StackLayout>
+        </RelativeLayout>
+  </ContentView.Content>
+</ContentView>
