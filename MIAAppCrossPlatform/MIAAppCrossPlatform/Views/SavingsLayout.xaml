@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MIAAppCrossPlatform.Views.SavingsLayout">
+  <ViewCell.View>
+      <StackLayout
+          Padding="10"
+          Margin="8, 4, 8, 6">
+            <StackLayout
+                Orientation="Horizontal">
+
+                <Label
+                    ClassId="Savings_Reference"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    Text="Reference:"
+                    FontSize="15"
+                    FontAttributes="Bold"/>
+
+                <Label
+                    ClassId="sav_reference"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Start"
+                    Margin="10, 0, 0, 0"
+                    FontSize="15"
+                    Text=""/>
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal">
+
+                <Label
+                    ClassId="Savings_Category_Name"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    Text="Category:"
+                    FontSize="15"
+                    FontAttributes="Bold"/>
+
+                <Label
+                    ClassId="sav_cat_name"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Start"
+                    Margin="10, 0, 0, 0"
+                    FontSize="15"
+                    Text=""/>
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal">
+
+                <Label
+                    ClassId="Savings_Partner_Name"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    Text="Partner:"
+                    FontSize="15"
+                    FontAttributes="Bold"/>
+
+                <Label
+                    ClassId="sav_part_name"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Start"
+                    Margin="10, 0, 0, 0"
+                    FontSize="15"
+                    Text=""/>
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal">
+
+                <Label
+                    ClassId="Date_and_Time"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    Text="Date and Time:"
+                    FontSize="15"
+                    FontAttributes="Bold"/>
+
+                <Label
+                    ClassId="d_and_t"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Start"
+                    Margin="10, 0, 0, 0"
+                    FontSize="15"
+                    Text=""/>
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal">
+
+                <Label
+                    ClassId="Savings_Amount"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    Text="Savings Amount:"
+                    FontSize="15"
+                    FontAttributes="Bold"/>
+
+                <Label
+                    ClassId="sav_am"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Start"
+                    Margin="10, 0, 0, 0"
+                    FontSize="15"
+                    Text=""/>
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal">
+
+                <Label
+                    ClassId="offer"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    Text="Offer:"
+                    FontSize="15"
+                    FontAttributes="Bold"/>
+
+                <Label
+                    ClassId="offer_Name"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Start"
+                    Margin="10, 0, 0, 0"
+                    FontSize="15"
+                    Text=""/>
+            </StackLayout>
+        </StackLayout>
+  </ViewCell.View>
+</ViewCell>
