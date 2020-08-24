@@ -119,6 +119,12 @@
                     TextColor="White"/>
                     
             </StackLayout>
+
+            <ActivityIndicator
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Color="#AA0A2F"/>
+                
         </RelativeLayout>
   </ContentView.Content>
 </ContentView>
