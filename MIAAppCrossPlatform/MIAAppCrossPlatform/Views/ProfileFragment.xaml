@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MIAAppCrossPlatform.Views.ProfileFragment">
+  <ContentView.Content>
+        <StackLayout
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill">
+
+            <Label
+                ClassId="personal_ddetails"
+                HorizontalOptions="Fill"
+                VerticalOptions="Start"
+                Text="Personal Details"
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                Padding="15"/>
+
+            <Grid
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
+
+                <Image
+                    ClassId="idCd"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    Margin="30, 10, 0, 0"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Source="C:\Users\djult\Source\Repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\creditCard.png"/>
+
+                <Label
+                    ClassId="ID_Card"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center"
+                    Margin="30, 10, 20, 0"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Grid.ColumnSpan="5"
+                    Text=""
+                    FontSize="18"/>
+
+                <Label
+                    ClassId="idNum2"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    Margin="30, 0, 0, 0"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="5"
+                    TextColor="#9D9D9C"
+                    Text="I.D. Number"/>
+            </Grid>
+
+            <Grid
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
+
+                <Image
+                    ClassId="member"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    Margin="30, 10, 0, 0"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Source="C:\Users\djult\Source\Repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\person.png"/>
+
+                <Label
+                    ClassId="FNAME"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center"
+                    Margin="30, 10, 20, 0"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Grid.ColumnSpan="5"
+                    Text=""
+                    FontSize="18"/>
+
+                <Label
+                    ClassId="FullName"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    Margin="30, 0, 0, 0"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="5"
+                    TextColor="#9D9D9C"
+                    Text="Full Name"/>
+            </Grid>
+
+            <Grid
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
+
+                <Image
+                    ClassId="email"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    Margin="30, 10, 0, 0"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Source="C:\Users\djult\Source\Repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\email.png"/>
+
+                <Label
+                    ClassId="Email"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center"
+                    Margin="30, 10, 20, 0"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Grid.ColumnSpan="5"
+                    Text=""
+                    FontSize="18"/>
+
+                <Label
+                    ClassId="Em"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    Margin="30, 0, 0, 0"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="5"
+                    TextColor="#9D9D9C"
+                    Text="Email Address"/>
+            </Grid>
+
+            <Grid
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
+
+                <Image
+                    ClassId="mobile_number"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    Margin="30, 10, 0, 0"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Source="C:\Users\djult\Source\Repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\mobilePhone.png"/>
+
+                <Label
+                    ClassId="Mobile_Number"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center"
+                    Margin="30, 10, 20, 0"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Grid.ColumnSpan="5"
+                    Text=""
+                    FontSize="18"/>
+
+                <Label
+                    ClassId="mobNum"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    Margin="30, 0, 0, 0"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="5"
+                    TextColor="#9D9D9C"
+                    Text="Mobile Number"/>
+            </Grid>
+
+            <Button
+                ClassId="btn_MySavings"
+                HorizontalOptions="Fill"
+                VerticalOptions="Center"
+                HeightRequest="40"
+                Margin="70, 50, 70, 0"
+                BackgroundColor="#AA0A2F"
+                TextColor="White"
+                Text="My Savings"/>
+
+            <Button
+                ClassId="logoutBtn"
+                HorizontalOptions="Fill"
+                VerticalOptions="Center"
+                HeightRequest="40"
+                Margin="70, 20, 70, 10"
+                BackgroundColor="#AA012F"
+                TextColor="White"
+                Text="Log Out"/>
+            
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>
