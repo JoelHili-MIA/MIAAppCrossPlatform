@@ -6,13 +6,18 @@
              xmlns:views="clr-namespace:MIAAppCrossPlatform.Views"
              mc:Ignorable="d"
              x:Class="MIAAppCrossPlatform.Views.LogAndRegActivity">
-    
-    <!--Pages can be added as references or inline-->
-    <ContentPage Title="Login">
-        <views:LoginFragment/>
-    </ContentPage>
-    
-    <ContentPage Title="Register">
-        <views:RegisterFragment/>
-    </ContentPage>
+
+    <TabbedPage.Children>
+        <NavigationPage BarBackgroundColor="White" Title="Login">
+            <x:Arguments>
+                <views:LoginFragment />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Register">
+            <x:Arguments>
+                <views:RegisterFragment />
+            </x:Arguments>
+        </NavigationPage>
+    </TabbedPage.Children>
 </TabbedPage>

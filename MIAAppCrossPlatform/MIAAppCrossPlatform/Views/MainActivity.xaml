@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:MIAAppCrossPlatform.Views"
              mc:Ignorable="d"
              x:Class="MIAAppCrossPlatform.Views.MainActivity"
             UnselectedTabColor="#9D9D9C"
@@ -11,17 +12,29 @@
     <!--Pages can be added as references or inline-->
     <ContentPage 
         IconImageSource="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\list.png"
-        Title="Category"/>
-    
+        Title="Category">
+        
+        <views:CategoryFragment/>
+    </ContentPage>
+
     <ContentPage 
         IconImageSource="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\favoriteFilled.png"
-        Title="Favorites"/>
-    
+        Title="Favorites">
+        
+        <views:FavoriteFragment/>
+    </ContentPage>
+
     <ContentPage 
         IconImageSource="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\info.png"
-        Title="Info"/>
-    
+        Title="Info">
+
+        <views:LatestOffersFragment/>
+    </ContentPage>
+
     <ContentPage
         IconImageSource="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\person.png"
-        Title="Profile"/>
+        Title="Profile">
+
+        <views:ProfileFragment/>
+    </ContentPage>
 </TabbedPage>
