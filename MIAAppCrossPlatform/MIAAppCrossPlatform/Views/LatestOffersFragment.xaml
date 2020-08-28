@@ -9,7 +9,7 @@
   <ContentView.Content>
         <Grid>
             <Label
-                ClassId="tv_infoBox"
+                x:Name="tv_infoBox"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="Start"
                 Margin="15, 20, 15, 0 "
@@ -19,7 +19,7 @@
                 FontAttributes="Bold"/>
 
             <Label
-                ClassId="tv_noLatest"
+                x:Name="tv_noLatest"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="Start"
                 IsVisible="False"
@@ -30,14 +30,14 @@
                 FontSize="16"/>
 
             <ListView
-                ClassId="latestView"
+                x:Name="latestView"
                 HorizontalOptions="FillAndExpand"
                 HeightRequest="175"
                 Margin="20, 15, 20, 0"
                 Grid.Row="1"/>
 
             <Label
-                ClassId="tv_infoBox2"
+                x:Name="tv_infoBox2"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="Start"
                 Margin="15, 15, 14, 0 "
@@ -47,7 +47,7 @@
                 FontAttributes="Bold"/>
 
             <map:Map
-                ClassId="mapView"
+                x:Name="mapView"
                 HorizontalOptions="Fill"
                 VerticalOptions="FillAndExpand"
                 Margin="40,20,40,60"

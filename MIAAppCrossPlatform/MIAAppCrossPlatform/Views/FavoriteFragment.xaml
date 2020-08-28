@@ -11,14 +11,13 @@
             VerticalOptions="Fill">
 
             <ListView
-                ClassId="favorite_partners"
+                x:Name="favorite_partners"
                 HorizontalOptions="Fill"
                 VerticalOptions="Fill"/>
 
-            <ProgressBar
+            <ActivityIndicator
                 HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Style="ProgressRing"/>
+                VerticalOptions="Center"/>
         </RelativeLayout>
   </ContentView.Content>
 </ContentView>

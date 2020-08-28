@@ -16,7 +16,7 @@
                 VerticalOptions="FillAndExpand">
 
                 <Label
-                    ClassId="text_first_name"
+                    x:Name="text_first_name"
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
                     Margin="24, 40, 24, 0"
@@ -25,7 +25,7 @@
                     FontAttributes="Bold"/>
 
                 <Entry
-                    ClassId="edit_first_name"
+                    x:Name="edit_first_name"
                     HorizontalOptions="Fill"
                     VerticalOptions="Center"
                     Margin="32, 0, 32, 0"
@@ -33,7 +33,7 @@
                     Placeholder="First Name"/>
 
                 <Label
-                    ClassId="text_last_name"
+                    x:Name="text_last_name"
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
                     Margin="24, 32, 24, 0"
@@ -42,7 +42,7 @@
                     FontAttributes="Bold"/>
 
                 <Entry
-                    ClassId="edit_last_name"
+                    x:Name="edit_last_name"
                     HorizontalOptions="Fill"
                     VerticalOptions="Center"
                     Margin="32, 0, 32, 0"
@@ -50,7 +50,7 @@
                     Placeholder="Last Name"/>
 
                 <Label
-                    ClassId="text_email"
+                    x:Name="text_email"
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
                     Margin="24, 32, 24, 0"
@@ -59,7 +59,7 @@
                     FontAttributes="Bold"/>
 
                 <Entry
-                    ClassId="edit_email"
+                    x:Name="edit_email"
                     HorizontalOptions="Fill"
                     VerticalOptions="Center"
                     Margin="32, 0, 32, 0"
@@ -67,7 +67,7 @@
                     Placeholder="Email"/>
 
                 <Label
-                    ClassId="text_mobile_number"
+                    x:Name="text_mobile_number"
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
                     Margin="24, 32, 24, 0"
@@ -76,7 +76,7 @@
                     FontAttributes="Bold"/>
 
                 <Entry
-                    ClassId="edit_mobil_number"
+                    x:Name="edit_mobil_number"
                     HorizontalOptions="Fill"
                     VerticalOptions="Center"
                     Margin="32, 0, 32, 0"
@@ -84,7 +84,7 @@
                     Placeholder="Mobile Number"/>
 
                 <Button
-                    ClassId="save_new_details"
+                    x:Name="save_new_details"
                     HorizontalOptions="Fill"
                     VerticalOptions="Center"
                     Margin="90, 50, 90, 0"

@@ -9,15 +9,11 @@
 
     <TabbedPage.Children>
         <NavigationPage BarBackgroundColor="White" Title="Login">
-            <x:Arguments>
-                <views:LoginFragment />
-            </x:Arguments>
+            
         </NavigationPage>
 
         <NavigationPage Title="Register">
-            <x:Arguments>
-                <views:RegisterFragment />
-            </x:Arguments>
         </NavigationPage>
+        
     </TabbedPage.Children>
 </TabbedPage>

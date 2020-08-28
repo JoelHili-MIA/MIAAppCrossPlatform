@@ -6,30 +6,15 @@ namespace MIAAppCrossPlatform.Models
 {
 	class PartnerData
 	{
-		private string partnerId;
-		private string partnerName;
-		private string partnerImageUrl;
-
-		public PartnerData(string _partnerId, string _partnerName, string _partnerImageUrl)
-		{
-			partnerId = _partnerId;
-			partnerName = _partnerName;
-			partnerImageUrl = _partnerImageUrl;
-		}
-
-		public string getPartnerId()
-		{
-			return partnerId;
-		}
-
-		public string getPartnerName()
-		{
-			return partnerName;
-		}
-
-		public string getPartnerImageUrl()
-		{
-			return partnerImageUrl;
-		}
+		public string address { get; set; }
+		public string email { get; set; }
+		public string partnerName{ get; set; }
+		public string partnerActive { get; set; }
+		public string partnerPicUrl { get; set; }
+		public string partnerUrlLink { get; set; }
+		public string telephone { get; set; }
+		public string timeStamp { get; set; }
+		public string tos { get; set; }
+		public string website { get; set; }
 	}
 }

@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MIAAppCrossPlatform.Services;
 using MIAAppCrossPlatform.Views;
+using Plugin.AutoLogin;
 
 namespace MIAAppCrossPlatform
 {
@@ -14,7 +15,16 @@ namespace MIAAppCrossPlatform
 			InitializeComponent();
 
 			DependencyService.Register<MockDataStore>();
-			MainPage = new MainPage();
+
+
+			if (CrossAutoLogin.Current.UserIsSaved)
+			{
+				MainPage = new MainActivity();
+			}
+			else
+			{
+				MainPage = new LogAndRegActivity();
+			}
 		}
 
 		protected override void OnStart()

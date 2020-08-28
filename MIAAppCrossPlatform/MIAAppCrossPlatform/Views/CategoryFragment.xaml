@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:MIAAppCrossPlatform.Views"
              mc:Ignorable="d"
              x:Class="MIAAppCrossPlatform.Views.CategoryFragment">
   <ContentView.Content>
         <StackLayout>
             <SearchBar
-                ClassId="searchEditText"
+                x:Name="searchEditText"
                 HorizontalOptions="Fill"
                 VerticalOptions="Start"
                 Placeholder="Search..."
@@ -17,7 +18,7 @@
                 TextChanged="SearchBar_TextChanged"/>
 
             <Label
-                ClassId="tv_insoBoxSearch"
+                x:Name="tv_insoBoxSearch"
                 HorizontalOptions="Start"
                 VerticalOptions="Center"
                 Margin="20, 5, 8, 0"
@@ -34,8 +35,11 @@
                     Text="Categories"/>
                 
                 <Switch
+                    x:Name="switchCatPart"
                     HorizontalOptions="Start"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    IsToggled="False"
+                    Toggled="switchCatPart_Toggled"/>
 
                 <Label
                     HorizontalOptions="Start"
@@ -45,10 +49,17 @@
             </StackLayout>
 
             <ListView
-                ClassId="categoryLayout"
+                x:Name="categoryLayout"
                 HorizontalOptions="Fill"
                 VerticalOptions="Fill"
-                Margin="0, 10, 0, 0"/>
+                Margin="0, 10, 0, 0">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <views:CategoryLayout/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
   </ContentView.Content>
 </ContentView>

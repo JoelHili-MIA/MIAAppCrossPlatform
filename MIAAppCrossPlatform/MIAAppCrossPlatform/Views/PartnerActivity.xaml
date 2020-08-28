@@ -8,15 +8,14 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem
-            ClassId="add_to_favorites"
-            Clicked=""
+            x:Name="add_to_favorites"
             IconImageSource="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\favoriteEmpty.png"/>
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
         <StackLayout>
             <Label
-                ClassId="P_name"
+                x:Name="P_name"
                 HorizontalOptions="Fill"
                 VerticalOptions="Start"
                 Margin="30, 20, 30, 0"
@@ -24,14 +23,14 @@
                 Text="Partner Name"/>
 
             <View
-                ClassId="devider"
+                x:Name="devider"
                 HorizontalOptions="Fill"
                 HeightRequest="1"
                 Margin="20, 20, 20, 0"
                 BackgroundColor="Black"/>
 
             <ScrollView
-                ClassId="scrollView"
+                x:Name="scrollView"
                 HorizontalOptions="Fill"
                 VerticalOptions="Fill"
                 Margin="20, 20, 20, 8"
@@ -43,7 +42,7 @@
                     VerticalOptions="Fill">
                     
                     <Label
-                        ClassId="pa_address"
+                        x:Name="pa_address"
                         HorizontalOptions="Fill"
                         VerticalOptions="Start"
                         Margin="20, 10, 10, 10"
@@ -53,7 +52,7 @@
                         FontAttributes="Bold"/>
 
                     <Label
-                        ClassId="pa_addressData"
+                        x:Name="pa_addressData"
                         HorizontalOptions="Fill"
                         VerticalOptions="Start"
                         Margin="50, 5, 10, 15"
@@ -62,7 +61,7 @@
                         FontSize="18"/>
 
                     <Label
-                        ClassId="pa_email"
+                        x:Name="pa_email"
                         HorizontalOptions="Fill"
                         VerticalOptions="Start"
                         Margin="20, 10, 10, 10"
@@ -72,7 +71,7 @@
                         FontAttributes="Bold"/>
 
                     <Label
-                        ClassId="pa_emailData"
+                        x:Name="pa_emailData"
                         HorizontalOptions="Fill"
                         VerticalOptions="Start"
                         Margin="50, 5, 10, 15"
@@ -81,7 +80,7 @@
                         FontSize="18"/>
 
                     <Label
-                        ClassId="pa_telephone"
+                        x:Name="pa_telephone"
                         HorizontalOptions="Fill"
                         VerticalOptions="Start"
                         Margin="20, 10, 10, 10"
@@ -91,7 +90,7 @@
                         FontAttributes="Bold"/>
 
                     <Label
-                        ClassId="pa_telephoneData"
+                        x:Name="pa_telephoneData"
                         HorizontalOptions="Fill"
                         VerticalOptions="Start"
                         Margin="50, 5, 10, 15"
@@ -100,7 +99,7 @@
                         FontSize="18"/>
 
                     <Label
-                        ClassId="pa_website"
+                        x:Name="pa_website"
                         HorizontalOptions="Fill"
                         VerticalOptions="Start"
                         Margin="20, 10, 10, 10"
@@ -110,7 +109,7 @@
                         FontAttributes="Bold"/>
 
                     <Label
-                        ClassId="pa_websiteData"
+                        x:Name="pa_websiteData"
                         HorizontalOptions="Fill"
                         VerticalOptions="Start"
                         Margin="50, 5, 10, 15"
@@ -119,7 +118,7 @@
                         FontSize="18"/>
 
                     <Label
-                        ClassId="pa_tos"
+                        x:Name="pa_tos"
                         HorizontalOptions="Fill"
                         VerticalOptions="Start"
                         Margin="20, 10, 10, 10"
@@ -129,7 +128,7 @@
                         FontAttributes="Bold"/>
 
                     <Label
-                        ClassId="pa_tosData"
+                        x:Name="pa_tosData"
                         HorizontalOptions="Fill"
                         VerticalOptions="Start"
                         Margin="50, 5, 10, 15"
@@ -140,21 +139,21 @@
             </ScrollView>
 
             <View
-                ClassId="devider2"
+                x:Name="devider2"
                 HorizontalOptions="Fill"
                 HeightRequest="1"
                 Margin="20, 20, 20, 0"
                 BackgroundColor="Black"/>
 
             <StackLayout
-                ClassId="rl_container"
+                x:Name="rl_container"
                 WidthRequest="0"
                 HeightRequest="0"
                 Margin="0, 20, 0, 0"
                 IsVisible="false">
 
                 <Label
-                    ClassId="ListOfOffers"
+                    x:Name="ListOfOffers"
                     HorizontalOptions="Fill"
                     VerticalOptions="Start"
                     Margin="0, 20, 0, 0"
@@ -164,7 +163,7 @@
                     FontSize="32"/>
 
                 <Label
-                    ClassId="tv_noResults"
+                    x:Name="tv_noResults"
                     HorizontalOptions="Fill"
                     VerticalOptions="Center"
                     Margin="10, 15, 10, 0"
@@ -175,7 +174,7 @@
                     IsVisible="false"/>
 
                 <ListView
-                    ClassId="partner_offer_layout"
+                    x:Name="partner_offer_layout"
                     HorizontalOptions="Fill"
                     VerticalOptions="Fill"
                     Margin="0, 25, 0, 80"
@@ -186,7 +185,7 @@
             </StackLayout>
 
             <Button
-                ClassId="show_offers"
+                x:Name="show_offers"
                 WidthRequest="212"
                 HeightRequest="62"
                 HorizontalOptions="Center"

@@ -11,12 +11,12 @@
             VerticalOptions="Fill">
             
             <ListView
-                ClassId="partnerLayout"
+                x:Name="partnerLayout"
                 HorizontalOptions="Fill"
                 VerticalOptions="Fill">
             </ListView>
-            <ProgressBar
-                ClassId="progressPartners"
+            <ActivityIndicator
+                x:Name="progressPartners"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"/>
         </RelativeLayout>

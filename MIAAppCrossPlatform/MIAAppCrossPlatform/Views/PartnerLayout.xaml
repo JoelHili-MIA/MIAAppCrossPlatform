@@ -12,14 +12,14 @@
           Padding="20">
 
             <Image
-                ClassId="latestPartner_image"
+                x:Name="latestPartner_image"
                 HorizontalOptions="Fill"
                 VerticalOptions="Start"
                 HeightRequest="100"
                 Margin="0, 0, 0, 0"/>
 
             <View
-                ClassId="divider"
+                x:Name="divider"
                 HorizontalOptions="Fill"
                 VerticalOptions="End"
                 HeightRequest="0.5"
@@ -27,7 +27,7 @@
                 BackgroundColor="Black"/>
 
             <Label
-                ClassId="latestOffer_name"
+                x:Name="latestOffer_name"
                 HorizontalOptions="Fill"
                 VerticalOptions="End"
                 Margin="0, 15, 0, 0"

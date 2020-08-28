@@ -7,7 +7,7 @@
              x:Class="MIAAppCrossPlatform.Views.SavingsSectionActivity">
     <ContentPage.Content>
         <ListView
-            ClassId="savings_layout"
+            x:Name="savings_layout"
             HorizontalOptions="Fill"
             VerticalOptions="Fill"/>
     </ContentPage.Content>

@@ -13,7 +13,7 @@
                 Orientation="Horizontal">
 
                 <Label
-                    ClassId="Savings_Reference"
+                    x:Name="Savings_Reference"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"
                     Text="Reference:"
@@ -21,7 +21,7 @@
                     FontAttributes="Bold"/>
 
                 <Label
-                    ClassId="sav_reference"
+                    x:Name="sav_reference"
                     HorizontalOptions="Fill"
                     VerticalOptions="Start"
                     Margin="10, 0, 0, 0"
@@ -33,7 +33,7 @@
                 Orientation="Horizontal">
 
                 <Label
-                    ClassId="Savings_Category_Name"
+                    x:Name="Savings_Category_Name"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"
                     Text="Category:"
@@ -41,7 +41,7 @@
                     FontAttributes="Bold"/>
 
                 <Label
-                    ClassId="sav_cat_name"
+                    x:Name="sav_cat_name"
                     HorizontalOptions="Fill"
                     VerticalOptions="Start"
                     Margin="10, 0, 0, 0"
@@ -53,7 +53,7 @@
                 Orientation="Horizontal">
 
                 <Label
-                    ClassId="Savings_Partner_Name"
+                    x:Name="Savings_Partner_Name"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"
                     Text="Partner:"
@@ -61,7 +61,7 @@
                     FontAttributes="Bold"/>
 
                 <Label
-                    ClassId="sav_part_name"
+                    x:Name="sav_part_name"
                     HorizontalOptions="Fill"
                     VerticalOptions="Start"
                     Margin="10, 0, 0, 0"
@@ -73,7 +73,7 @@
                 Orientation="Horizontal">
 
                 <Label
-                    ClassId="Date_and_Time"
+                    x:Name="Date_and_Time"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"
                     Text="Date and Time:"
@@ -81,7 +81,7 @@
                     FontAttributes="Bold"/>
 
                 <Label
-                    ClassId="d_and_t"
+                    x:Name="d_and_t"
                     HorizontalOptions="Fill"
                     VerticalOptions="Start"
                     Margin="10, 0, 0, 0"
@@ -93,7 +93,7 @@
                 Orientation="Horizontal">
 
                 <Label
-                    ClassId="Savings_Amount"
+                    x:Name="Savings_Amount"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"
                     Text="Savings Amount:"
@@ -101,7 +101,7 @@
                     FontAttributes="Bold"/>
 
                 <Label
-                    ClassId="sav_am"
+                    x:Name="sav_am"
                     HorizontalOptions="Fill"
                     VerticalOptions="Start"
                     Margin="10, 0, 0, 0"
@@ -113,7 +113,7 @@
                 Orientation="Horizontal">
 
                 <Label
-                    ClassId="offer"
+                    x:Name="offer"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"
                     Text="Offer:"
@@ -121,7 +121,7 @@
                     FontAttributes="Bold"/>
 
                 <Label
-                    ClassId="offer_Name"
+                    x:Name="offer_Name"
                     HorizontalOptions="Fill"
                     VerticalOptions="Start"
                     Margin="10, 0, 0, 0"

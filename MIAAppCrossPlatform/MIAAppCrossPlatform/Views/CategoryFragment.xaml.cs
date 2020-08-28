@@ -8,7 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Markup;
 using Xamarin.Forms.Xaml;
+
+using Firebase.Database;
+using Firebase.Database.Query;
 
 namespace MIAAppCrossPlatform.Views
 {
@@ -19,24 +23,76 @@ namespace MIAAppCrossPlatform.Views
 		private List<CategoryData> categoryDataList;
 		private ListView listView;
 
-		public Switch catSwitch, partSwitch;
+		public Switch catPartSwitch;
 
 		private Label searchTextValidation;
 		private Entry editText;
 		private string currentUserText;
 
-		//ToDo - Add Database Reference
-
-		ActivityIndicator pb;
+		FirebaseClient firebase;
+		FirebaseQuery categories; //Firebase Reference
 
 		public CategoryFragment()
 		{
 			InitializeComponent();
+
+			listView = (ListView)FindByName("categoryLayout");
+			searchEditText = (SearchBar)FindByName("searchEditText");
+			catPartSwitch = (Switch)FindByName("switchCatPart"); //False - Category; True - Partner
+
+			currentUserText = "";			
+
+			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
+			categories = firebase.Child("Categories");
+
+			fillListPartner();
+
+			if(categoryDataList.Count <= 0)
+			{
+				searchTextValidation.Text = "Failed to retrieve the categories. Check your internet connection!";
+			}
 		}
 
 		private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
 		{
+			currentUserText = sender.ToString();
+			filter(currentUserText);
+		}
 
+		private void fillListPartner()
+		{
+			categoryDataList = new List<CategoryData>();
+
+			try
+			{
+				GetPartnerList();
+				
+			}
+			catch
+			{
+
+			}
+		}
+
+		private bool GetPartnerList()
+		{
+			return false; //ToDo
+		}
+
+		private void fillListCategory()
+		{
+			categoryDataList.Clear();
+			categoryDataList = GetCategoryList().Result;
+		}
+
+		private async Task<List<CategoryData>> GetCategoryList()
+		{
+			return (await firebase
+				.Child("categories")
+				.OnceAsync<CategoryData>()).Select(i => new CategoryData
+				{
+					
+				}).ToList();
 		}
 
 		private void filter(string input)
@@ -47,9 +103,9 @@ namespace MIAAppCrossPlatform.Views
 
 				foreach(CategoryData c in categoryDataList)
 				{
-					if (catSwitch.IsToggled)
+					if (!catPartSwitch.IsToggled)
 					{
-						if (c.getCategoryName().ToLower().Contains(input.ToLower()))
+						if (c.name.ToLower().Contains(input.ToLower()))
 						{
 							filteredList.Add(c);
 							searchTextValidation.Text = "";
@@ -61,7 +117,7 @@ namespace MIAAppCrossPlatform.Views
 					}
 					else
 					{
-						if (c.getCatPartnerName().ToLower().Contains(input.ToLower()))
+						if (c.partners.FirstOrDefault<PartnerData>().partnerName.ToLower().Contains(input.ToLower()))
 						{
 							filteredList.Add(c);
 							searchTextValidation.Text = "";
@@ -77,7 +133,19 @@ namespace MIAAppCrossPlatform.Views
 			}
 			catch(Exception e)
 			{
+				Console.WriteLine(e);
+			}
+		}
 
+		private void switchCatPart_Toggled(object sender, ToggledEventArgs e)
+		{
+			if (catPartSwitch.IsToggled)
+			{
+				fillListCategory();
+			}
+			else
+			{
+				fillListPartner();
 			}
 		}
 	}

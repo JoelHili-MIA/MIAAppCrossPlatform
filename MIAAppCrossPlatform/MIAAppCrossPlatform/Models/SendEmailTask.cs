@@ -25,10 +25,12 @@ namespace MIAAppCrossPlatform.Models
 			catch(FeatureNotEnabledException fnsEx)
 			{
 				//Email not supported on this device
+				Console.WriteLine(fnsEx);
 			}
 			catch(Exception ex)
 			{
 				//Other Exception
+				Console.WriteLine(ex);
 			}
 		}
 	}

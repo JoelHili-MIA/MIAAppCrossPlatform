@@ -8,7 +8,7 @@
   <ContentView.Content>
         <RelativeLayout>
             <Label
-                ClassId="tv_favorites"
+                x:Name="tv_favorites"
                 HorizontalOptions="Fill"
                 VerticalOptions="Start"
                 Margin="20, 30, 15, 700"/>

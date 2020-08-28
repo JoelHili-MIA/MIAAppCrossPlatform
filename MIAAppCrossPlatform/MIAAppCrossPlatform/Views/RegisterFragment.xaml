@@ -8,7 +8,7 @@
   <ContentView.Content>
         <StackLayout HorizontalOptions="Fill">
             <Label
-                ClassId="tv_logo"
+                x:Name="tv_logo"
                 HorizontalOptions="Fill"
                 VerticalOptions="Start"
                 Margin="25, 20, 25, 5"
@@ -16,7 +16,7 @@
                 FontSize="45"/>
 
             <Label
-                ClassId="tv_subtitle"
+                x:Name="tv_subtitle"
                 HorizontalOptions="Fill"
                 VerticalOptions="Start"
                 Margin="25, 0, 25, 30"
@@ -25,7 +25,7 @@
                 TextColor="#9D9D9C"/>
 
             <Entry
-                ClassId="et_idCard"
+                x:Name="et_idCard"
                 HorizontalOptions="Fill"
                 HeightRequest="50"
                 Margin="20, 0, 20, 10"
@@ -34,7 +34,7 @@
                 FontSize="15"/>
 
             <Entry
-                ClassId="et_email"
+                x:Name="et_email"
                 HorizontalOptions="Fill"
                 HeightRequest="50"
                 Margin="20, 0, 20, 10"
@@ -42,7 +42,7 @@
                 FontSize="15"/>
 
             <Entry
-                ClassId="et_mobile"
+                x:Name="et_mobile"
                 HorizontalOptions="Fill"
                 HeightRequest="50"
                 Margin="20, 0, 20, 10"
@@ -51,7 +51,7 @@
                 FontSize="15"/>
 
             <Entry
-                ClassId="et_password"
+                x:Name="et_password"
                 HorizontalOptions="Fill"
                 HeightRequest="50"
                 Margin="20, 0, 20, 10"
@@ -60,7 +60,7 @@
                 FontSize="15"/>
 
             <Entry
-                ClassId="et_repassword"
+                x:Name="et_repassword"
                 HorizontalOptions="Fill"
                 HeightRequest="50"
                 Margin="20, 0, 20, 10"
@@ -69,7 +69,7 @@
                 FontSize="15"/>
 
             <Label
-                ClassId="tv_validationText"
+                x:Name="tv_validationText"
                 HorizontalOptions="Start"
                 VerticalOptions="Start"
                 Margin="30, 30, 30, 20"
@@ -77,7 +77,7 @@
                 FontSize="15"/>
 
             <View
-                ClassId="divider"
+                x:Name="divider"
                 HorizontalOptions="Fill"
                 VerticalOptions="End"
                 HeightRequest="0.5"
@@ -85,7 +85,7 @@
                 BackgroundColor="Black"/>
 
             <Button
-                ClassId="btn_register"
+                x:Name="btn_register"
                 WidthRequest="120"
                 HeightRequest="60"
                 HorizontalOptions="Center"

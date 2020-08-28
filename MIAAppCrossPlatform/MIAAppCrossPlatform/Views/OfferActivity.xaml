@@ -8,7 +8,7 @@
              x:Class="MIAAppCrossPlatform.Views.OfferActivity">
     <ContentPage.Content>
         <ScrollView
-            ClassId="offerScrollView"
+            x:Name="offerScrollView"
             HorizontalOptions="Center"
             VerticalOptions="Center"
             VerticalScrollBarVisibility="Always">
@@ -19,7 +19,7 @@
                 Orientation="Vertical">
 
                 <ImageButton
-                    ClassId="imgBtnClose"
+                    x:Name="imgBtnClose"
                     HeightRequest="31"
                     WidthRequest="29"
                     HorizontalOptions="End"
@@ -27,16 +27,15 @@
                     Source="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\close.png"/>
 
                 <Image
-                    ClassId="iv_logo"
+                    x:Name="iv_logo"
                     HorizontalOptions="Fill"
                     VerticalOptions="Start"
                     HeightRequest="100"
                     Margin="50, 20, 50, 15"
-                    Source="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform.Android\Resources\drawable\xamarin_logo.png"
-                    BackgroundColor=""/>
+                    Source="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform.Android\Resources\drawable\xamarin_logo.png"/>
 
                 <Label
-                    ClassId="tv_offer"
+                    x:Name="tv_offer"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"
                     Margin="25, 15, 0, 0"
@@ -45,14 +44,14 @@
                     FontAttributes="Bold"/>
 
                 <Label
-                    ClassId="tv_offerData"
+                    x:Name="tv_offerData"
                     HorizontalOptions="End"
                     VerticalOptions="FillAndExpand"
                     Margin="40, 5, 20, 0"
                     FontSize="15"/>
 
                 <Label
-                    ClassId="tv_tos"
+                    x:Name="tv_tos"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"
                     Margin="25, 15, 0, 0"
@@ -61,7 +60,7 @@
                     FontAttributes="Bold"/>
                 
                 <Label
-                    ClassId="tv_tosData"
+                    x:Name="tv_tosData"
                     HorizontalOptions="End"
                     VerticalOptions="FillAndExpand"
                     Margin="40, 5, 20, 20"
@@ -75,7 +74,7 @@
                             Margin="0, 0, 0, 0">
 
                             <Label
-                                ClassId="tv_partnerCode"
+                                x:Name="tv_partnerCode"
                                 HorizontalOptions="Fill"
                                 VerticalOptions="StartAndExpand"
                                 Grid.Row="0"
@@ -86,7 +85,7 @@
                                 FontAttributes="Bold"/>
 
                             <Entry
-                                ClassId="et_partnerCode"
+                                x:Name="et_partnerCode"
                                 HorizontalOptions="Fill"
                                 VerticalOptions="Center"
                                 Grid.Row="1"
@@ -97,7 +96,7 @@
                                 HorizontalTextAlignment="Center"/>
 
                             <Button
-                                ClassId="btn_partnerCode"
+                                x:Name="btn_partnerCode"
                                 HorizontalOptions="Fill"
                                 VerticalOptions="Center"
                                 Grid.Row="2"
@@ -112,12 +111,12 @@
                         BackgroundColor="#C6C6C6">
                         
                         <Grid
-                            ClassId="layoutDiscount"
+                            x:Name="layoutDiscount"
                             HorizontalOptions="Fill"
                             VerticalOptions="Fill">
 
                             <Label
-                                ClassId="tv_discountText"
+                                x:Name="tv_discountText"
                                 HorizontalOptions="Center"
                                 VerticalOptions="CenterAndExpand"
                                 Grid.Row="0"
@@ -128,7 +127,7 @@
                                 FontAttributes="Bold"/>
 
                             <Entry
-                                ClassId="et_discountAmount"
+                                x:Name="et_discountAmount"
                                 HorizontalOptions="Fill"
                                 VerticalOptions="Center"
                                 Grid.Row="1"
@@ -139,7 +138,7 @@
                                 HorizontalTextAlignment="Center"/>
 
                             <Button
-                                ClassId="btn_submitDiscount"
+                                x:Name="btn_submitDiscount"
                                 HorizontalOptions="Fill"
                                 VerticalOptions="Center"
                                 Grid.Row="2"

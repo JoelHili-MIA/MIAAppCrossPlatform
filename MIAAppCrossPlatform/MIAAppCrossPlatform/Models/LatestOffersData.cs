@@ -46,9 +46,11 @@ namespace MIAAppCrossPlatform.Models
 			return dateOfOffer;
 		}
 
-		public int CompareTo(LatestOffersData latest)
+		public int CompareTo(object obj)
 		{
-			if(getDateTime()==null || latest.getDateTime() == null)
+			LatestOffersData latest = (LatestOffersData)obj;
+
+			if (getDateTime() == null || latest.getDateTime() == null)
 			{
 				return 0;
 			}
