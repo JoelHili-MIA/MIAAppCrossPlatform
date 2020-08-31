@@ -25,13 +25,34 @@ namespace MIAAppCrossPlatform.Views
 
 		private void btn_login_Clicked(object sender, EventArgs e)
 		{
-			if (et_password.Equals(checkPassword().Result))
+			bool resultCheckPassword = checkPassword().Result;
+			bool resultCheckAccountActive = checkAccountActive().Result;
+			bool resultCheckAccountNew = checkAccountNew().Result;
+
+			if (resultCheckPassword && !resultCheckAccountNew && resultCheckAccountActive)//Account is good
 			{
+				if (chkRemember.IsChecked)
+				{
+					CrossAutoLogin.Current.SaveUserInfos(et_idCard.Text, et_password.Text);
+				}
+
 				new MainActivity();
 			}
-			else
+			else if (resultCheckPassword && !resultCheckAccountNew && !resultCheckAccountActive)//Account is not active
 			{
-
+				validationText.Text = "The account has been deactivated! Please renew your membership to regain the benefits of this aplication.";
+			}
+			else if (resultCheckAccountNew)//Account is new
+			{
+				validationText.Text = "Your ID Card is registered in the database! Proceed to the registration page";
+			}
+			else if (!resultCheckPassword && !resultCheckAccountActive && !resultCheckAccountNew)//Account does not exist
+			{
+				validationText.Text = "Account does not exist";
+			}
+			else if (!resultCheckPassword)//Incorrect Password
+			{
+				validationText.Text = "Incorrect ID Card or Password";
 			}
 		}
 
@@ -52,6 +73,49 @@ namespace MIAAppCrossPlatform.Views
 					session = p.Object.session,
 					surname = p.Object.surname
 				}).Where(q => q.password.Contains(et_password.Text)).Equals(et_password);
+		}
+
+		private async Task<bool> checkAccountActive()
+		{
+			return (await firebase
+				.Child("credentials")
+				.Child(et_idCard.Text)
+				.OnceAsync<ProfileData>()).Select(p => new ProfileData
+				{
+					active = p.Object.active,
+					email = p.Object.email,
+					favorites = p.Object.favorites,
+					id = p.Object.id,
+					mobile = p.Object.mobile,
+					name = p.Object.name,
+					password = p.Object.password,
+					session = p.Object.session,
+					surname = p.Object.surname
+				}).Where(q => q.active.Contains("Yes")).Equals("Yes");
+		}
+
+		private async Task<bool> checkAccountNew()
+		{
+			return (await firebase
+				.Child("credentials")
+				.Child(et_idCard.Text)
+				.OnceAsync<ProfileData>()).Select(p => new ProfileData
+				{
+					active = p.Object.active,
+					email = p.Object.email,
+					favorites = p.Object.favorites,
+					id = p.Object.id,
+					mobile = p.Object.mobile,
+					name = p.Object.name,
+					password = p.Object.password,
+					session = p.Object.session,
+					surname = p.Object.surname
+				}).Where(q => q.password.Contains("")).Equals("");
+		}
+
+		private void btn_forgotPassword_Clicked(object sender, EventArgs e)
+		{
+			new ForgotPasswordActivity();
 		}
 
 		public static string prefsFile = "miaLog";
