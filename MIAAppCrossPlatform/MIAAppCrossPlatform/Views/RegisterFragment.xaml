@@ -31,7 +31,8 @@
                 Margin="20, 0, 20, 10"
                 Placeholder="ID Card"
                 MaxLength="8"
-                FontSize="15"/>
+                FontSize="15"
+                Focused="et_idCard_Focused"/>
 
             <Entry
                 x:Name="et_email"
@@ -39,7 +40,8 @@
                 HeightRequest="50"
                 Margin="20, 0, 20, 10"
                 Placeholder="Email"
-                FontSize="15"/>
+                FontSize="15"
+                Focused="et_email_Focused"/>
 
             <Entry
                 x:Name="et_mobile"
@@ -48,7 +50,8 @@
                 Margin="20, 0, 20, 10"
                 Placeholder="Mobile Number"
                 Keyboard="Telephone"
-                FontSize="15"/>
+                FontSize="15"
+                Focused="et_mobile_Focused"/>
 
             <Entry
                 x:Name="et_password"
@@ -57,7 +60,8 @@
                 Margin="20, 0, 20, 10"
                 Placeholder="Password"
                 IsPassword="True"
-                FontSize="15"/>
+                FontSize="15"
+                Focused="et_password_Focused"/>
 
             <Entry
                 x:Name="et_repassword"
@@ -94,7 +98,8 @@
                 Text="Register"
                 FontSize="16"
                 BackgroundColor="#AA0A2F"
-                TextColor="White"/>
+                TextColor="White"
+                Clicked="Register"/>
         </StackLayout>
     </ContentView.Content>
 </ContentView>
