@@ -6,6 +6,7 @@ namespace MIAAppCrossPlatform.Models
 {
 	class ProfileData
 	{
+		public static ProfileData profile;
 		public string active { get; set; }
 		public string email { get; set; }
 		public List<FavoriteData> favorites { get; set; }

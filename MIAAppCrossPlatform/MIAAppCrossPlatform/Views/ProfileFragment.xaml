@@ -11,7 +11,7 @@
             VerticalOptions="Fill">
 
             <Label
-                x:Name="personal_ddetails"
+                x:Name="personal_details"
                 HorizontalOptions="Fill"
                 VerticalOptions="Start"
                 Text="Personal Details"
@@ -171,7 +171,8 @@
                 Margin="70, 50, 70, 0"
                 BackgroundColor="#AA0A2F"
                 TextColor="White"
-                Text="My Savings"/>
+                Text="My Savings"
+                Clicked="btn_MySavings_Clicked"/>
 
             <Button
                 x:Name="logoutBtn"
@@ -181,7 +182,8 @@
                 Margin="70, 20, 70, 10"
                 BackgroundColor="#AA012F"
                 TextColor="White"
-                Text="Log Out"/>
+                Text="Log Out"
+                Clicked="logoutBtn_Clicked"/>
             
         </StackLayout>
   </ContentView.Content>
