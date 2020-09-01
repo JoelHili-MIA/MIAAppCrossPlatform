@@ -183,7 +183,9 @@
                             Margin="30, 10, 30, 20"
                             Text="Your Link Added Here"
                             FontAttributes="Bold"
-                            FontSize="18"/>
+                            FontSize="18"
+                            TextColor="#AA0A2F"  
+                            TextType="Html"/>
                     </Grid>
                 </RelativeLayout>
             </StackLayout>

@@ -18,14 +18,11 @@ namespace MIAAppCrossPlatform.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ProfileFragment : ContentView
 	{
-		FirebaseClient firebase;
 		Page alert;
 
 		public ProfileFragment()
 		{
 			InitializeComponent();
-
-			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
 
 			ID_Card.Text = ProfileData.profile.id;
 			FNAME.Text = ProfileData.profile.name + " " + ProfileData.profile.surname;
