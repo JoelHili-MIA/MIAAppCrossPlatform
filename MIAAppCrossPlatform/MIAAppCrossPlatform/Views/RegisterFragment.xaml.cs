@@ -13,6 +13,7 @@ using Xamarin.Forms.Internals;
 
 using Plugin.Toast;
 using System.Net.Mail;
+using MIAAppCrossPlatform.Models;
 
 namespace MIAAppCrossPlatform.Views
 {
@@ -38,6 +39,36 @@ namespace MIAAppCrossPlatform.Views
 		private void et_idCard_Focused(object sender, FocusEventArgs e)
 		{
 			CrossToastPopUp.Current.ShowToastWarning("Make sure you are part of the privilege scheme for MIA. Example of ab ID: 0123456M");
+		}
+
+		private bool isValidID()
+		{
+			if (getProfile().Result.password.Equals("") && getProfile().Result.active.Equals("yes"))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		private async Task<ProfileData> getProfile()
+		{
+			return (ProfileData)(await firebase
+				.Child("credentials")
+				.OnceAsync<ProfileData>()).Select(i => new ProfileData
+				{
+					active = i.Object.active,
+					email = i.Object.email,
+					favorites = i.Object.favorites,
+					id = i.Object.id,
+					mobile = i.Object.mobile,
+					name = i.Object.name,
+					password = i.Object.password,
+					session = i.Object.session,
+					surname = i.Object.surname
+				}).Where(i => i.id.Contains(et_idCard.Text));
 		}
 
 		private bool checkEmail(string emailAddress)
@@ -97,6 +128,14 @@ namespace MIAAppCrossPlatform.Views
 
 				et_idCard.Text = "";
 				et_idCard.Placeholder = "Please enter your ID Card";
+				et_idCard.PlaceholderColor = Color.Red;
+			}
+			else if (!isValidID())
+			{
+				isCorrect = false;
+
+				et_idCard.Text = "";
+				et_idCard.Placeholder = "Please enter a new and active ID Card";
 				et_idCard.PlaceholderColor = Color.Red;
 			}
 			else
@@ -187,11 +226,28 @@ namespace MIAAppCrossPlatform.Views
 				et_repassword.Placeholder = "Confirm Password";
 				et_repassword.PlaceholderColor = default;
 			}
+
+			if (isCorrect)
+			{
+				Register();
+			}
 		}
 
-		private void Register(object sender, EventArgs e)
+		private async Task Register()
 		{
+			var toUpdate = (await firebase
+				.Child("credentials")
+				.OnceAsync<ProfileData>()).Where(i => i.Object.id.Equals(et_idCard)).FirstOrDefault();
 
+			await firebase
+				.Child("credentials")
+				.Child(toUpdate.Key)
+				.PutAsync(new ProfileData() { 
+					email = et_email.Text,
+					id = et_idCard.Text,
+					mobile = et_mobile.Text,
+					password = et_password.Text
+				});
 		}
 	}
 }

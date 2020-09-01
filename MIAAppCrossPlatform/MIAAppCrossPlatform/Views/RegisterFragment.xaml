@@ -99,7 +99,7 @@
                 FontSize="16"
                 BackgroundColor="#AA0A2F"
                 TextColor="White"
-                Clicked="Register"/>
+                Clicked="btn_register_Clicked"/>
         </StackLayout>
     </ContentView.Content>
 </ContentView>
