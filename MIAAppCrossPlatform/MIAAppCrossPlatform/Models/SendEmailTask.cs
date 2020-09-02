@@ -9,28 +9,27 @@ namespace MIAAppCrossPlatform.Models
 {
 	class SendEmailTask
 	{
-		public static async Task SendEmail( String _subject, String _body, List<string> _recipient)
+		public static void SendEmail(string _from, string _to, string _subject, string _body, string _username, string _password)
 		{
 			try
 			{
-				var message = new EmailMessage
-				{
-					Subject = _subject,
-					Body = _body,
-					To = _recipient,
-				};
+				MailMessage mail = new MailMessage();
+				SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-				await Email.ComposeAsync(message);
+				mail.From = new MailAddress(_from);
+				mail.To.Add(_to);
+				mail.Subject = _subject;
+				mail.Body = _body;
+
+				SmtpServer.Port = 587;
+				SmtpServer.Credentials = new System.Net.NetworkCredential(_username, _password);
+				SmtpServer.Send(mail);
+
+				Plugin.Toast.CrossToastPopUp.Current.ShowToastSuccess("Mail Sent");
 			}
-			catch(FeatureNotEnabledException fnsEx)
+			catch(Exception e)
 			{
-				//Email not supported on this device
-				Console.WriteLine(fnsEx);
-			}
-			catch(Exception ex)
-			{
-				//Other Exception
-				Console.WriteLine(ex);
+				Plugin.Toast.CrossToastPopUp.Current.ShowToastError(e.Message);
 			}
 		}
 	}
