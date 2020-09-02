@@ -90,7 +90,8 @@
                     Margin="90, 50, 90, 0"
                     Text="Save"
                     BackgroundColor="#AA0A2F"
-                    TextColor="White"/>
+                    TextColor="White"
+                    Clicked="save_new_details_Clicked"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

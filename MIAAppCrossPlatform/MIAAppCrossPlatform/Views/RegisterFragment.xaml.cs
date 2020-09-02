@@ -229,7 +229,7 @@ namespace MIAAppCrossPlatform.Views
 
 			if (isCorrect)
 			{
-				Register();
+				Register().Wait();
 			}
 		}
 

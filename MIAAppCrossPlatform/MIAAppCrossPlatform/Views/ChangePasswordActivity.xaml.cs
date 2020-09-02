@@ -103,7 +103,8 @@ namespace MIAAppCrossPlatform.Views
 
 			if (isCorrect)
 			{
-				savePassword();
+				savePassword().Wait();
+				Plugin.Toast.CrossToastPopUp.Current.ShowToastMessage("Changed Password");
 			}
 		}
 
