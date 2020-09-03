@@ -10,7 +10,6 @@ using Xamarin.Forms.Core;
 
 using Firebase.Database;
 using Firebase.Database.Query;
-using Plugin.AutoLogin;
 using MIAAppCrossPlatform.Models;
 
 namespace MIAAppCrossPlatform.Views
@@ -42,7 +41,7 @@ namespace MIAAppCrossPlatform.Views
 					password = i.Object.password,
 					session = i.Object.session,
 					surname = i.Object.surname
-				}).Where(i => i.id.Contains(CrossAutoLogin.Current.UserEmail));
+				}).Where(i => i.id.Contains(App.User_ID));
 		}
 	}
 }

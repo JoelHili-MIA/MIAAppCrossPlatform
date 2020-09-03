@@ -3,12 +3,21 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MIAAppCrossPlatform.Services;
 using MIAAppCrossPlatform.Views;
-using Plugin.AutoLogin;
+using Xamarin.Auth;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
+using Firebase.Database;
+using Firebase.Database.Query;
+using MIAAppCrossPlatform.Models;
+using System.Linq;
 
 namespace MIAAppCrossPlatform
 {
 	public partial class App : Application
 	{
+		FirebaseClient firebase;
+
+		public static string User_ID { get; set; }
 
 		public App()
 		{
@@ -17,8 +26,9 @@ namespace MIAAppCrossPlatform
 			DependencyService.Register<MockDataStore>();
 
 
-			if (CrossAutoLogin.Current.UserIsSaved)
+			if (autoLogin(getUsername().Result, getPassword().Result))
 			{
+				User_ID = getUsername().Result;
 				MainPage = new MainActivity();
 			}
 			else
@@ -26,6 +36,66 @@ namespace MIAAppCrossPlatform
 				MainPage = new LogAndRegActivity();
 			}
 		}
+
+		private bool autoLogin(string _username, string _password)
+		{
+			if(checkPassword(_username,_password).Result && checkAccountActive(_username).Result)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		private async Task<string> getUsername()
+		{
+			return await SecureStorage.GetAsync("auto_user");
+		}
+		private async Task<string> getPassword()
+		{
+			return await SecureStorage.GetAsync("auto_pass");
+		}
+
+		private async Task<bool> checkPassword(string _username, string _password)
+		{
+			return (await firebase
+				.Child("credentials")
+				.Child(_username)
+				.OnceAsync<ProfileData>()).Select(p => new ProfileData
+				{
+					active = p.Object.active,
+					email = p.Object.email,
+					favorites = p.Object.favorites,
+					id = p.Object.id,
+					mobile = p.Object.mobile,
+					name = p.Object.name,
+					password = p.Object.password,
+					session = p.Object.session,
+					surname = p.Object.surname
+				}).Where(q => q.password.Contains(_password)).Equals(_password);
+		}
+
+		private async Task<bool> checkAccountActive(string _username)
+		{
+			return (await firebase
+				.Child("credentials")
+				.Child(_username)
+				.OnceAsync<ProfileData>()).Select(p => new ProfileData
+				{
+					active = p.Object.active,
+					email = p.Object.email,
+					favorites = p.Object.favorites,
+					id = p.Object.id,
+					mobile = p.Object.mobile,
+					name = p.Object.name,
+					password = p.Object.password,
+					session = p.Object.session,
+					surname = p.Object.surname
+				}).Where(q => q.active.Contains("Yes")).Equals("Yes");
+		}
+
 
 		protected override void OnStart()
 		{

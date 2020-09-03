@@ -40,8 +40,7 @@
                 HeightRequest="50"
                 Margin="20, 0, 20, 10"
                 Placeholder="Email"
-                FontSize="15"
-                Focused="et_email_Focused"/>
+                FontSize="15"/>
 
             <Entry
                 x:Name="et_mobile"
@@ -50,8 +49,7 @@
                 Margin="20, 0, 20, 10"
                 Placeholder="Mobile Number"
                 Keyboard="Telephone"
-                FontSize="15"
-                Focused="et_mobile_Focused"/>
+                FontSize="15"/>
 
             <Entry
                 x:Name="et_password"

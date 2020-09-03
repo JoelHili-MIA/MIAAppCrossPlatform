@@ -10,8 +10,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 
-using Plugin.AutoLogin;
-using Plugin.AutoLogin.Abstractions;
 using MIAAppCrossPlatform.Models;
 
 namespace MIAAppCrossPlatform.Views
@@ -23,6 +21,12 @@ namespace MIAAppCrossPlatform.Views
 		ChildQuery credentials;
 		FirebaseClient firebase;
 
+		private async Task saveAutoLogin()
+		{
+			await SecureStorage.SetAsync("auto_user", et_idCard.Text);
+			await SecureStorage.SetAsync("auto_pass", et_password.Text);
+		}
+
 		private void btn_login_Clicked(object sender, EventArgs e)
 		{
 			bool resultCheckPassword = checkPassword().Result;
@@ -33,7 +37,7 @@ namespace MIAAppCrossPlatform.Views
 			{
 				if (chkRemember.IsChecked)
 				{
-					CrossAutoLogin.Current.SaveUserInfos(et_idCard.Text, et_password.Text);
+					saveAutoLogin().Wait();
 				}
 
 				new MainActivity();

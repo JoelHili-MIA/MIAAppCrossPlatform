@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using Plugin.AutoLogin;
-using Plugin.AutoLogin.Abstractions;
 using Xamarin.Forms.Internals;
 using MIAAppCrossPlatform.Models;
+using Xamarin.Essentials;
 
 namespace MIAAppCrossPlatform.Views
 {
@@ -36,7 +35,7 @@ namespace MIAAppCrossPlatform.Views
 
 			if (ans)
 			{
-				CrossAutoLogin.Current.DeleteUserInfos();
+				SecureStorage.RemoveAll();
 				new LogAndRegActivity();
 			}
 		}
