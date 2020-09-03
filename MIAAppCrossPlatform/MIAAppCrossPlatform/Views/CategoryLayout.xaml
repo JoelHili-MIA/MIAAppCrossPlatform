@@ -4,11 +4,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             Height="100"
              x:Class="MIAAppCrossPlatform.Views.CategoryLayout">
   <ViewCell.View>
         <StackLayout
             Orientation="Horizontal"
+            VerticalOptions="Start"
+            HeightRequest="100"
+            HorizontalOptions="Fill"
             Margin="8, 4, 8, 6">
 
             <Image
