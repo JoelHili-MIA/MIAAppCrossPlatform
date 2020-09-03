@@ -12,9 +12,12 @@ namespace MIAAppCrossPlatform.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PartnerOfferRecyclerView : ViewCell
 	{
+		public string Name { get; set; }
 		public PartnerOfferRecyclerView()
 		{
 			InitializeComponent();
+
+			offer_name.Text = Name;
 		}
 	}
 }
