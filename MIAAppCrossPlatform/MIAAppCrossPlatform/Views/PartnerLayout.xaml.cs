@@ -13,15 +13,15 @@ namespace MIAAppCrossPlatform.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PartnerLayout : ViewCell
 	{
-		public string Image { get; set; }
-		public string Name { get; set; }
-
 		public PartnerLayout()
 		{
+			Image image = new Image();
+			Label name = new Label();
+
 			InitializeComponent();
 
-			latestPartner_image.Source = Image;
-			latestOffer_name.Text = Name;
+			image.SetBinding(Image.SourceProperty, "image");
+			name.SetBinding(Label.TextProperty, "name");
 		}
 	}
 }
