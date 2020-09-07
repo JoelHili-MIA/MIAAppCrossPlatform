@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Firebase.Database;
+using Firebase.Database.Query;
+using MIAAppCrossPlatform.Models;
+using Plugin.Toast;
+using System;
 using System.Linq;
-using System.Text;
+using System.Net.Mail;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-using Firebase.Database;
-using Firebase.Database.Query;
-using Xamarin.Forms.Internals;
-
-using Plugin.Toast;
-using System.Net.Mail;
-using MIAAppCrossPlatform.Models;
 
 namespace MIAAppCrossPlatform.Views
 {

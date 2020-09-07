@@ -19,11 +19,7 @@ namespace MIAAppCrossPlatform.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CategoryFragment : ContentView
 	{
-		private DataAdapter dataAdapter;
-		private List<CategoryData> categoryDataList;
-		private ListView listView;
-
-		public Switch catPartSwitch;
+		public Switch catPartSwitch; //False - Category; True - Partner
 
 		private Label searchTextValidation;
 		private Entry editText;
@@ -36,18 +32,16 @@ namespace MIAAppCrossPlatform.Views
 		{
 			InitializeComponent();
 
-			listView = (ListView)FindByName("categoryLayout");
-			searchEditText = (SearchBar)FindByName("searchEditText");
-			catPartSwitch = (Switch)FindByName("switchCatPart"); //False - Category; True - Partner
+			GetCategoryData().Wait();
+			GetPartnerData();
 
 			currentUserText = "";			
 
 			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
-			categories = firebase.Child("Categories");
 
-			fillListPartner();
+			fillListCategory();
 
-			if(categoryDataList.Count <= 0)
+			if(CategoryData.Data.Count <= 0)
 			{
 				searchTextValidation.Text = "Failed to retrieve the categories. Check your internet connection!";
 			}
@@ -61,37 +55,40 @@ namespace MIAAppCrossPlatform.Views
 
 		private void fillListPartner()
 		{
-			categoryDataList = new List<CategoryData>();
-
-			try
-			{
-				GetPartnerList();
-				
-			}
-			catch
-			{
-
-			}
+			categoryLayout.ItemsSource = PartnerData.Data;
 		}
 
-		private bool GetPartnerList()
+		private List<CategoryData> GetCategoryList()
 		{
-			return false; //ToDo
+			return CategoryData.Data.Where(i => i.active == "Yes").ToList();
 		}
 
 		private void fillListCategory()
 		{
-			categoryDataList.Clear();
-			categoryDataList = GetCategoryList().Result;
+			categoryLayout.ItemsSource = GetCategoryList();
 		}
 
-		private async Task<List<CategoryData>> GetCategoryList()
+		private void GetPartnerData()
 		{
-			return (await firebase
-				.Child("categories")
+			var query = from PartnerData partner in CategoryData.Data
+							   where partner.partnerActive == "Yes"
+							   select partner;
+
+			PartnerData.Data = query.ToList();
+		}
+
+		private async Task GetCategoryData()
+		{
+			CategoryData.Data = (await firebase
+				.Child("Categories")
 				.OnceAsync<CategoryData>()).Select(i => new CategoryData
 				{
-					
+					partners = i.Object.partners,
+					active = i.Object.active,
+					id = i.Object.id,
+					name = i.Object.name,
+					picUrl = i.Object.picUrl,
+					urlLink = i.Object.urlLink
 				}).ToList();
 		}
 
@@ -99,37 +96,47 @@ namespace MIAAppCrossPlatform.Views
 		{
 			try
 			{
-				List<CategoryData> filteredList = new List<CategoryData>();
+				List<CategoryData> filteredCatList = new List<CategoryData>();
+				List<PartnerData> filteredPartList = new List<PartnerData>();
 
-				foreach(CategoryData c in categoryDataList)
+				foreach (var v in categoryLayout.ItemsSource)
 				{
 					if (!catPartSwitch.IsToggled)
 					{
+						filteredCatList.Clear();
+						CategoryData c = (CategoryData)v;
+
 						if (c.name.ToLower().Contains(input.ToLower()))
 						{
-							filteredList.Add(c);
+							filteredCatList.Add(c);
 							searchTextValidation.Text = "";
 						}
-						if(filteredList.Count <= 0)
+						if(filteredCatList.Count <= 0)
 						{
 							searchTextValidation.Text = "No results found. Check if your spelling is correct";
 						}
+
+						categoryLayout.ItemsSource = filteredCatList;
 					}
 					else
 					{
-						if (c.partners.FirstOrDefault<PartnerData>().partnerName.ToLower().Contains(input.ToLower()))
+						filteredPartList.Clear();
+						filteredPartList = new List<PartnerData>();
+						PartnerData p = (PartnerData)v;
+
+						if (p.partnerName.ToLower().Contains(input.ToLower()))
 						{
-							filteredList.Add(c);
+							filteredPartList.Add(p);
 							searchTextValidation.Text = "";
 						}
-						if(filteredList.Count <= 0)
+						if(filteredPartList.Count <= 0)
 						{
 							searchTextValidation.Text = "No results found. Check if your spelling is correct";
 						}
+
+						categoryLayout.ItemsSource = filteredPartList;
 					}
 				}
-
-				listView.ItemsSource = filteredList;
 			}
 			catch(Exception e)
 			{

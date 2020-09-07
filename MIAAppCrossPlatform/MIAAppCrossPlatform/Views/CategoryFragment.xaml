@@ -21,17 +21,18 @@
                 x:Name="tv_insoBoxSearch"
                 HorizontalOptions="Start"
                 VerticalOptions="Center"
-                Margin="20, 5, 8, 0"
+                Margin="20, 5, 0, 0"
                 Text="Filter by:"
                 FontSize="10"/>
 
             <StackLayout
-                Orientation="Horizontal">
+                Orientation="Horizontal"
+                HorizontalOptions="Center">
 
                 <Label
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
-                    Margin="20, 0, 5, 0"
+                    Margin="0, 0, 5, 0"
                     Text="Categories"/>
                 
                 <Switch

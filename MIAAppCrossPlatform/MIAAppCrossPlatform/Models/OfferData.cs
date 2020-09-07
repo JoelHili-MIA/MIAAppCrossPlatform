@@ -6,23 +6,9 @@ namespace MIAAppCrossPlatform.Models
 {
 	class OfferData
 	{
-		private string offerId;
-		private string offerName;
-
-		public OfferData(string _offerId, string _offerName)
-		{
-			offerId = _offerId;
-			offerName = _offerName;
-		}
-
-		public string getOfferId()
-		{
-			return offerId;
-		}
-
-		public string getOfferName()
-		{
-			return offerName;
-		}
+		public string dateTime { get; set; }
+		public string offerActive { get; set; }
+		public string offerName { get; set; }
+		public string offerTOS { get; set; }
 	}
 }
