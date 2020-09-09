@@ -22,11 +22,11 @@ namespace MIAAppCrossPlatform.Views
 
 			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
 
-			loadData();
-			loadList();
+			LoadData();
+			LoadList();
 		}
 
-		private void loadList()
+		private void LoadList()
 		{
 			partnerLayout.ItemTemplate = new DataTemplate(typeof(PartnerData));
 
@@ -65,7 +65,7 @@ namespace MIAAppCrossPlatform.Views
 				}).ToList();
 		}
 
-		private void loadData()
+		private void LoadData()
 		{
 			GetCategoryData().Wait();
 			GetPartnerData();

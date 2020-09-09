@@ -65,16 +65,16 @@ namespace MIAAppCrossPlatform
 				.Child(_username)
 				.OnceAsync<ProfileData>()).Select(p => new ProfileData
 				{
-					active = p.Object.active,
-					email = p.Object.email,
-					favorites = p.Object.favorites,
-					id = p.Object.id,
-					mobile = p.Object.mobile,
-					name = p.Object.name,
-					password = p.Object.password,
-					session = p.Object.session,
-					surname = p.Object.surname
-				}).Where(q => q.password.Contains(_password)).Equals(_password);
+					Active = p.Object.Active,
+					Email = p.Object.Email,
+					Favorites = p.Object.Favorites,
+					Id = p.Object.Id,
+					Mobile = p.Object.Mobile,
+					Name = p.Object.Name,
+					Password = p.Object.Password,
+					Session = p.Object.Session,
+					Surname = p.Object.Surname
+				}).Where(q => q.Password.Contains(_password)).Equals(_password);
 		}
 
 		private async Task<bool> checkAccountActive(string _username)
@@ -84,16 +84,16 @@ namespace MIAAppCrossPlatform
 				.Child(_username)
 				.OnceAsync<ProfileData>()).Select(p => new ProfileData
 				{
-					active = p.Object.active,
-					email = p.Object.email,
-					favorites = p.Object.favorites,
-					id = p.Object.id,
-					mobile = p.Object.mobile,
-					name = p.Object.name,
-					password = p.Object.password,
-					session = p.Object.session,
-					surname = p.Object.surname
-				}).Where(q => q.active.Contains("Yes")).Equals("Yes");
+					Active = p.Object.Active,
+					Email = p.Object.Email,
+					Favorites = p.Object.Favorites,
+					Id = p.Object.Id,
+					Mobile = p.Object.Mobile,
+					Name = p.Object.Name,
+					Password = p.Object.Password,
+					Session = p.Object.Session,
+					Surname = p.Object.Surname
+				}).Where(q => q.Active.Contains("Yes")).Equals("Yes");
 		}
 
 

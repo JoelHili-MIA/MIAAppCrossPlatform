@@ -12,15 +12,30 @@ namespace MIAAppCrossPlatform.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CategoryLayout : ViewCell
 	{
-		public string Image { get; set; }
-		public string Name { get; set; }
+		public static readonly BindableProperty NameProperty = BindableProperty.Create("name", typeof(string), typeof(CategoryLayout), "Name");
+		public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create("image", typeof(string), typeof(CategoryLayout), "Image");
 
-		public CategoryLayout()
+		public string Name
 		{
-			InitializeComponent();
+			get { return (string)GetValue(NameProperty); }
+			set { SetValue(NameProperty, value); }
+		}
 
-			category_name.Text = Name;
-			category_image_icon.Source = Image;
+		public string ImageSource
+		{
+			get { return (string)GetValue(ImageSourceProperty); }
+			set { SetValue(ImageSourceProperty, value); }
+		}
+
+		protected override void OnBindingContextChanged()
+		{
+			base.OnBindingContextChanged();
+
+			if (BindingContext != null)
+			{
+				category_name.Text = Name;
+				category_image_icon.Source = ImageSource;
+			}
 		}
 	}
 }

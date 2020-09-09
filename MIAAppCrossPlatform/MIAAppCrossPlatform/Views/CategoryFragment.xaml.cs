@@ -22,24 +22,21 @@ namespace MIAAppCrossPlatform.Views
 		public Switch catPartSwitch; //False - Category; True - Partner
 
 		private Label searchTextValidation;
-		private Entry editText;
 		private string currentUserText;
 
 		FirebaseClient firebase;
-		FirebaseQuery categories; //Firebase Reference
 
 		public CategoryFragment()
 		{
 			InitializeComponent();
 
-			GetCategoryData().Wait();
-			GetPartnerData();
+			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
+
+			LoadData();
 
 			currentUserText = "";			
 
-			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
-
-			fillListCategory();
+			LoadCategoryList(CategoryData.Data);
 
 			if(CategoryData.Data.Count <= 0)
 			{
@@ -47,15 +44,47 @@ namespace MIAAppCrossPlatform.Views
 			}
 		}
 
+		//Load the data required
+		private void LoadData()
+		{
+			GetCategoryData().Wait();//Get Data from "Categories" in the Firebase
+			GetPartnerData();//Get Data from CategoriesData Singleton
+		}
+
+		private void LoadCategoryList(List<CategoryData> _input)
+		{
+			categoryLayout.ItemTemplate = new DataTemplate(typeof(CategoryLayout));
+
+			var cell = new DataTemplate(typeof(CategoryLayout));
+			cell.SetBinding(CategoryLayout.NameProperty, "Name");
+			cell.SetBinding(CategoryLayout.ImageSourceProperty, "Image");
+
+			categoryLayout = new ListView
+			{
+				ItemsSource = _input,
+				ItemTemplate = cell
+			};
+		}
+
+		private void LoadPartnerList(List<PartnerData> _input)
+		{
+			categoryLayout.ItemTemplate = new DataTemplate(typeof(PartnerData));
+
+			var partnerCell = new DataTemplate(typeof(PartnerLayout));
+			partnerCell.SetBinding(PartnerLayout.NameProperty, "Name");
+			partnerCell.SetBinding(PartnerLayout.ImageSourceProperty, "Image");
+
+			categoryLayout = new ListView
+			{
+				ItemsSource = _input,
+				ItemTemplate = partnerCell
+			};
+		}
+
 		private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			currentUserText = sender.ToString();
-			filter(currentUserText);
-		}
-
-		private void fillListPartner()
-		{
-			categoryLayout.ItemsSource = PartnerData.Data;
+			Filter(currentUserText);
 		}
 
 		private List<CategoryData> GetCategoryList()
@@ -63,11 +92,7 @@ namespace MIAAppCrossPlatform.Views
 			return CategoryData.Data.Where(i => i.active == "Yes").ToList();
 		}
 
-		private void fillListCategory()
-		{
-			categoryLayout.ItemsSource = GetCategoryList();
-		}
-
+		
 		private void GetPartnerData()
 		{
 			var query = from PartnerData partner in CategoryData.Data
@@ -92,7 +117,7 @@ namespace MIAAppCrossPlatform.Views
 				}).ToList();
 		}
 
-		private void filter(string input)
+		private void Filter(string input)
 		{
 			try
 			{
@@ -116,7 +141,7 @@ namespace MIAAppCrossPlatform.Views
 							searchTextValidation.Text = "No results found. Check if your spelling is correct";
 						}
 
-						categoryLayout.ItemsSource = filteredCatList;
+						LoadCategoryList(filteredCatList);
 					}
 					else
 					{
@@ -134,7 +159,7 @@ namespace MIAAppCrossPlatform.Views
 							searchTextValidation.Text = "No results found. Check if your spelling is correct";
 						}
 
-						categoryLayout.ItemsSource = filteredPartList;
+						LoadPartnerList(filteredPartList);
 					}
 				}
 			}
@@ -144,15 +169,15 @@ namespace MIAAppCrossPlatform.Views
 			}
 		}
 
-		private void switchCatPart_Toggled(object sender, ToggledEventArgs e)
+		private void SwitchCatPart_Toggled(object sender, ToggledEventArgs e)
 		{
 			if (catPartSwitch.IsToggled)
 			{
-				fillListCategory();
+				LoadCategoryList(CategoryData.Data);
 			}
 			else
 			{
-				fillListPartner();
+				LoadPartnerList(PartnerData.Data);
 			}
 		}
 	}

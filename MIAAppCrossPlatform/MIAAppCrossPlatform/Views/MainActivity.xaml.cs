@@ -32,16 +32,16 @@ namespace MIAAppCrossPlatform.Views
 				.Child("credentials")
 				.OnceAsync<ProfileData>()).Select(i => new ProfileData
 				{
-					active = i.Object.active,
-					email = i.Object.email,
-					favorites = i.Object.favorites,
-					id = i.Object.id,
-					mobile = i.Object.mobile,
-					name = i.Object.name,
-					password = i.Object.password,
-					session = i.Object.session,
-					surname = i.Object.surname
-				}).Where(i => i.id.Contains(App.User_ID));
+					Active = i.Object.Active,
+					Email = i.Object.Email,
+					Favorites = i.Object.Favorites,
+					Id = i.Object.Id,
+					Mobile = i.Object.Mobile,
+					Name = i.Object.Name,
+					Password = i.Object.Password,
+					Session = i.Object.Session,
+					Surname = i.Object.Surname
+				}).Where(i => i.Id.Contains(App.User_ID));
 		}
 	}
 }

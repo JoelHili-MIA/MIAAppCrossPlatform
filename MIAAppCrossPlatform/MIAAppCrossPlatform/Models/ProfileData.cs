@@ -7,15 +7,15 @@ namespace MIAAppCrossPlatform.Models
 	class ProfileData
 	{
 		public static ProfileData profile;
-		public string active { get; set; }
-		public string email { get; set; }
-		public List<FavoriteData> favorites { get; set; }
-		public string id { get; set; }
-		public string mobile { get; set; }
-		public string name { get; set; }
-		public string password { get; set; }
-		public List<SavingsSectionData> savings { get; set; }
-		public string session { get; set; }
-		public string surname { get; set; }
+		public string Active { get; set; }
+		public string Email { get; set; }
+		public List<FavoriteData> Favorites { get; set; }
+		public string Id { get; set; }
+		public string Mobile { get; set; }
+		public string Name { get; set; }
+		public string Password { get; set; }
+		public List<SavingsSectionData> Savings { get; set; }
+		public string Session { get; set; }
+		public string Surname { get; set; }
 	}
 }

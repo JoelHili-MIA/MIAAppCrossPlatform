@@ -117,17 +117,17 @@ namespace MIAAppCrossPlatform.Views
 		{
 			var toUpdate = (await firebase
 				.Child("credentials")
-				.OnceAsync<ProfileData>()).Where(i => i.Object.id.Equals(ProfileData.profile.id)).FirstOrDefault();
+				.OnceAsync<ProfileData>()).Where(i => i.Object.Id.Equals(ProfileData.profile.Id)).FirstOrDefault();
 
 			await firebase
 				.Child("credentials")
 				.Child(toUpdate.Key)
 				.PutAsync(new ProfileData()
 				{
-					name = edit_first_name.Text,
-					surname = edit_last_name.Text,
-					email = edit_email.Text,
-					mobile = edit_mobil_number.Text
+					Name = edit_first_name.Text,
+					Surname = edit_last_name.Text,
+					Email = edit_email.Text,
+					Mobile = edit_mobil_number.Text
 				});
 		}
 

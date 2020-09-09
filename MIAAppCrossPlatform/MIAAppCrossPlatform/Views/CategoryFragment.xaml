@@ -40,7 +40,7 @@
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
                     IsToggled="False"
-                    Toggled="switchCatPart_Toggled"/>
+                    Toggled="SwitchCatPart_Toggled"/>
 
                 <Label
                     HorizontalOptions="Start"

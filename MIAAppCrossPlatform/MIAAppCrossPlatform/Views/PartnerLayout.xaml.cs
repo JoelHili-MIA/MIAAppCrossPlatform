@@ -14,7 +14,7 @@ namespace MIAAppCrossPlatform.Views
 	public partial class PartnerLayout : ViewCell
 	{
 		public static readonly BindableProperty NameProperty = BindableProperty.Create("name", typeof(string), typeof(PartnerLayout), "Name");
-		public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create("image", typeof(string), typeof(PartnerLayout), "");
+		public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create("image", typeof(string), typeof(PartnerLayout), "Image");
 
 		public string Name
 		{

@@ -31,15 +31,15 @@ namespace MIAAppCrossPlatform.Views
 		{
 			var tProfile = (await firebase
 				.Child("credentials")
-				.OnceAsync<ProfileData>()).Where(i => i.Object.id.Equals(ev_IdCard.Text)).First().Object;
+				.OnceAsync<ProfileData>()).Where(i => i.Object.Id.Equals(ev_IdCard.Text)).First().Object;
 
-			if(tProfile.active.Equals("Yes"))//Not yet registered
+			if(tProfile.Active.Equals("Yes"))//Not yet registered
 			{
 				CrossToastPopUp.Current.ShowToastError("This ID Card is not yet registered!");
 
 				return false;
 			}
-			else if(tProfile.email != "")//Correct
+			else if(tProfile.Email != "")//Correct
 			{
 				sendEmail(tProfile);
 
@@ -60,7 +60,7 @@ namespace MIAAppCrossPlatform.Views
 			string fromPassword = "Qbim0719";
 			string emailSubject = "MIA Privilege Scheme App – Reset of Password";
 			string emailBody = "This email has been sent to you because a request was made to reset the password of this app.<br/><br/>Your verification code is: <b>" + generatedCode + "</b><br/><br/>" + "Return to the app and enter this verification code to be able to reset your password.";
-			SendEmailTask.SendEmail(fromEmail, _profile.email, emailSubject, emailBody, fromEmail, fromPassword);
+			SendEmailTask.SendEmail(fromEmail, _profile.Email, emailSubject, emailBody, fromEmail, fromPassword);
 		}
 
 		private string generateCode()

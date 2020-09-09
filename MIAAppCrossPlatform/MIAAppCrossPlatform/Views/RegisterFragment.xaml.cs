@@ -37,7 +37,7 @@ namespace MIAAppCrossPlatform.Views
 
 		private bool isValidID()
 		{
-			if (getProfile().Result.password.Equals("") && getProfile().Result.active.Equals("yes"))
+			if (getProfile().Result.Password.Equals("") && getProfile().Result.Active.Equals("yes"))
 			{
 				return true;
 			}
@@ -53,16 +53,16 @@ namespace MIAAppCrossPlatform.Views
 				.Child("credentials")
 				.OnceAsync<ProfileData>()).Select(i => new ProfileData
 				{
-					active = i.Object.active,
-					email = i.Object.email,
-					favorites = i.Object.favorites,
-					id = i.Object.id,
-					mobile = i.Object.mobile,
-					name = i.Object.name,
-					password = i.Object.password,
-					session = i.Object.session,
-					surname = i.Object.surname
-				}).Where(i => i.id.Contains(et_idCard.Text));
+					Active = i.Object.Active,
+					Email = i.Object.Email,
+					Favorites = i.Object.Favorites,
+					Id = i.Object.Id,
+					Mobile = i.Object.Mobile,
+					Name = i.Object.Name,
+					Password = i.Object.Password,
+					Session = i.Object.Session,
+					Surname = i.Object.Surname
+				}).Where(i => i.Id.Contains(et_idCard.Text));
 		}
 
 		private bool checkEmail(string emailAddress)
@@ -231,16 +231,16 @@ namespace MIAAppCrossPlatform.Views
 		{
 			var toUpdate = (await firebase
 				.Child("credentials")
-				.OnceAsync<ProfileData>()).Where(i => i.Object.id.Equals(et_idCard)).FirstOrDefault();
+				.OnceAsync<ProfileData>()).Where(i => i.Object.Id.Equals(et_idCard)).FirstOrDefault();
 
 			await firebase
 				.Child("credentials")
 				.Child(toUpdate.Key)
 				.PutAsync(new ProfileData() { 
-					email = et_email.Text,
-					id = et_idCard.Text,
-					mobile = et_mobile.Text,
-					password = et_password.Text
+					Email = et_email.Text,
+					Id = et_idCard.Text,
+					Mobile = et_mobile.Text,
+					Password = et_password.Text
 				});
 		}
 	}

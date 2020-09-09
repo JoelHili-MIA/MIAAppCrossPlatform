@@ -112,14 +112,14 @@ namespace MIAAppCrossPlatform.Views
 		{
 			var toUpdate = (await firebase
 				.Child("credentials")
-				.OnceAsync<ProfileData>()).Where(i => i.Object.id.Equals(ProfileData.profile.id)).FirstOrDefault();
+				.OnceAsync<ProfileData>()).Where(i => i.Object.Id.Equals(ProfileData.profile.Id)).FirstOrDefault();
 
 			await firebase
 				.Child("credentials")
 				.Child(toUpdate.Key)
 				.PutAsync(new ProfileData()
 				{
-					password = edit_new_password.Text
+					Password = edit_new_password.Text
 				});
 		}
 	}

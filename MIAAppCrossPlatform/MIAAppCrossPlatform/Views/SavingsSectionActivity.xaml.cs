@@ -18,10 +18,10 @@ namespace MIAAppCrossPlatform.Views
 		{
 			InitializeComponent();
 
-			loadList();
+			LoadList();
 		}
 
-		private void loadList()
+		private void LoadList()
 		{
 			savings_layout.ItemTemplate = new DataTemplate(typeof(SavingsLayout));
 
@@ -35,7 +35,7 @@ namespace MIAAppCrossPlatform.Views
 
 			savings_layout = new ListView
 			{
-				ItemsSource = ProfileData.profile.savings,
+				ItemsSource = ProfileData.profile.Savings,
 				ItemTemplate = partnerCell
 			};
 		}

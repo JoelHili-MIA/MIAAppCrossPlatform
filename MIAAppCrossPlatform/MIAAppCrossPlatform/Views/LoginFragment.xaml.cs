@@ -67,16 +67,16 @@ namespace MIAAppCrossPlatform.Views
 				.Child(et_idCard.Text)
 				.OnceAsync<ProfileData>()).Select(p => new ProfileData
 				{
-					active = p.Object.active,
-					email = p.Object.email,
-					favorites = p.Object.favorites,
-					id = p.Object.id,
-					mobile = p.Object.mobile,
-					name = p.Object.name,
-					password = p.Object.password,
-					session = p.Object.session,
-					surname = p.Object.surname
-				}).Where(q => q.password.Contains(et_password.Text)).Equals(et_password);
+					Active = p.Object.Active,
+					Email = p.Object.Email,
+					Favorites = p.Object.Favorites,
+					Id = p.Object.Id,
+					Mobile = p.Object.Mobile,
+					Name = p.Object.Name,
+					Password = p.Object.Password,
+					Session = p.Object.Session,
+					Surname = p.Object.Surname
+				}).Where(q => q.Password.Contains(et_password.Text)).Equals(et_password);
 		}
 
 		private async Task<bool> checkAccountActive()
@@ -86,16 +86,16 @@ namespace MIAAppCrossPlatform.Views
 				.Child(et_idCard.Text)
 				.OnceAsync<ProfileData>()).Select(p => new ProfileData
 				{
-					active = p.Object.active,
-					email = p.Object.email,
-					favorites = p.Object.favorites,
-					id = p.Object.id,
-					mobile = p.Object.mobile,
-					name = p.Object.name,
-					password = p.Object.password,
-					session = p.Object.session,
-					surname = p.Object.surname
-				}).Where(q => q.active.Contains("Yes")).Equals("Yes");
+					Active = p.Object.Active,
+					Email = p.Object.Email,
+					Favorites = p.Object.Favorites,
+					Id = p.Object.Id,
+					Mobile = p.Object.Mobile,
+					Name = p.Object.Name,
+					Password = p.Object.Password,
+					Session = p.Object.Session,
+					Surname = p.Object.Surname
+				}).Where(q => q.Active.Contains("Yes")).Equals("Yes");
 		}
 
 		private async Task<bool> checkAccountNew()
@@ -105,16 +105,16 @@ namespace MIAAppCrossPlatform.Views
 				.Child(et_idCard.Text)
 				.OnceAsync<ProfileData>()).Select(p => new ProfileData
 				{
-					active = p.Object.active,
-					email = p.Object.email,
-					favorites = p.Object.favorites,
-					id = p.Object.id,
-					mobile = p.Object.mobile,
-					name = p.Object.name,
-					password = p.Object.password,
-					session = p.Object.session,
-					surname = p.Object.surname
-				}).Where(q => q.password.Contains("")).Equals("");
+					Active = p.Object.Active,
+					Email = p.Object.Email,
+					Favorites = p.Object.Favorites,
+					Id = p.Object.Id,
+					Mobile = p.Object.Mobile,
+					Name = p.Object.Name,
+					Password = p.Object.Password,
+					Session = p.Object.Session,
+					Surname = p.Object.Surname
+				}).Where(q => q.Password.Contains("")).Equals("");
 		}
 
 		private void btn_forgotPassword_Clicked(object sender, EventArgs e)
