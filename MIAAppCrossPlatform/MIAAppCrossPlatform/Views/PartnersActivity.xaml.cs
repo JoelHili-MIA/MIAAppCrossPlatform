@@ -25,6 +25,16 @@ namespace MIAAppCrossPlatform.Views
 			loadData();
 
 			partnerLayout.ItemTemplate = new DataTemplate(typeof(PartnerData));
+
+			var partnerCell = new DataTemplate(typeof(PartnerLayout));
+			partnerCell.SetBinding(PartnerLayout.NameProperty, "Name");
+			partnerCell.SetBinding(PartnerLayout.ImageSourceProperty, "Image");
+
+			partnerLayout = new ListView
+			{
+				ItemsSource = PartnerData.Data,
+				ItemTemplate = partnerCell
+			};
 		}
 
 		private void GetPartnerData()

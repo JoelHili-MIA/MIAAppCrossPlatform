@@ -13,15 +13,30 @@ namespace MIAAppCrossPlatform.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PartnerLayout : ViewCell
 	{
-		public PartnerLayout()
+		public static readonly BindableProperty NameProperty = BindableProperty.Create("name", typeof(string), typeof(PartnerLayout), "Name");
+		public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create("image", typeof(string), typeof(PartnerLayout), "");
+
+		public string Name
 		{
-			Image image = new Image();
-			Label name = new Label();
+			get { return (string)GetValue(NameProperty); }
+			set { SetValue(NameProperty, value); }
+		}
 
-			InitializeComponent();
+		public string ImageSource
+		{
+			get { return (string)GetValue(ImageSourceProperty); }
+			set { SetValue(ImageSourceProperty, value); }
+		}
 
-			image.SetBinding(Image.SourceProperty, "image");
-			name.SetBinding(Label.TextProperty, "name");
+		protected override void OnBindingContextChanged()
+		{
+			base.OnBindingContextChanged();
+
+			if(BindingContext != null)
+			{
+				latestOffer_name.Text = Name;
+				latestPartner_image.Source = ImageSource;
+			}
 		}
 	}
 }
