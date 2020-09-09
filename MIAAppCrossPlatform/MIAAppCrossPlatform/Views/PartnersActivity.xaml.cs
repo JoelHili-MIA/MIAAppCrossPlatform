@@ -23,7 +23,11 @@ namespace MIAAppCrossPlatform.Views
 			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
 
 			loadData();
+			loadList();
+		}
 
+		private void loadList()
+		{
 			partnerLayout.ItemTemplate = new DataTemplate(typeof(PartnerData));
 
 			var partnerCell = new DataTemplate(typeof(PartnerLayout));

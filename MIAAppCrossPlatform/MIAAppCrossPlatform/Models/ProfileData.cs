@@ -14,6 +14,7 @@ namespace MIAAppCrossPlatform.Models
 		public string mobile { get; set; }
 		public string name { get; set; }
 		public string password { get; set; }
+		public List<SavingsSectionData> savings { get; set; }
 		public string session { get; set; }
 		public string surname { get; set; }
 	}

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Firebase.Database;
+using MIAAppCrossPlatform.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,27 @@ namespace MIAAppCrossPlatform.Views
 		public SavingsSectionActivity()
 		{
 			InitializeComponent();
+
+			loadList();
+		}
+
+		private void loadList()
+		{
+			savings_layout.ItemTemplate = new DataTemplate(typeof(SavingsLayout));
+
+			var partnerCell = new DataTemplate(typeof(SavingsLayout));
+			partnerCell.SetBinding(SavingsLayout.ReferenceProperty, "Reference");
+			partnerCell.SetBinding(SavingsLayout.CategoryProperty, "Category");
+			partnerCell.SetBinding(SavingsLayout.PartnerProperty, "Partner");
+			partnerCell.SetBinding(SavingsLayout.DateAndTimeProperty, "DateAndTime");
+			partnerCell.SetBinding(SavingsLayout.SavingsAmountProperty, "SavingsAmount");
+			partnerCell.SetBinding(SavingsLayout.OfferProperty, "Offer");
+
+			savings_layout = new ListView
+			{
+				ItemsSource = ProfileData.profile.savings,
+				ItemTemplate = partnerCell
+			};
 		}
 	}
 }
