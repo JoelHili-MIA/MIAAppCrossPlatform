@@ -13,7 +13,8 @@
             <ListView
                 x:Name="favorite_partners"
                 HorizontalOptions="Fill"
-                VerticalOptions="Fill"/>
+                VerticalOptions="Fill"
+                ItemTapped="favorite_partners_ItemTapped"/>
 
             <ActivityIndicator
                 HorizontalOptions="Center"

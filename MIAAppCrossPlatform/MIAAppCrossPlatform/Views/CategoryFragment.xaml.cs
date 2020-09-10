@@ -96,7 +96,7 @@ namespace MIAAppCrossPlatform.Views
 		private void GetPartnerData()
 		{
 			var query = from PartnerData partner in CategoryData.Data
-							   where partner.partnerActive == "Yes"
+							   where partner.PartnerActive == "Yes"
 							   select partner;
 
 			PartnerData.Data = query.ToList();
@@ -149,7 +149,7 @@ namespace MIAAppCrossPlatform.Views
 						filteredPartList = new List<PartnerData>();
 						PartnerData p = (PartnerData)v;
 
-						if (p.partnerName.ToLower().Contains(input.ToLower()))
+						if (p.PartnerName.ToLower().Contains(input.ToLower()))
 						{
 							filteredPartList.Add(p);
 							searchTextValidation.Text = "";

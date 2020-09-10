@@ -44,7 +44,7 @@ namespace MIAAppCrossPlatform.Views
 		private void GetPartnerData()
 		{
 			var query = from PartnerData partner in CategoryData.Data
-						where partner.partnerActive == "Yes"
+						where partner.PartnerActive == "Yes"
 						select partner;
 
 			PartnerData.Data = query.ToList();

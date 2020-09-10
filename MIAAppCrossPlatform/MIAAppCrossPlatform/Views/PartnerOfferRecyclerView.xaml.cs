@@ -12,12 +12,22 @@ namespace MIAAppCrossPlatform.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PartnerOfferRecyclerView : ViewCell
 	{
-		public string Name { get; set; }
-		public PartnerOfferRecyclerView()
-		{
-			InitializeComponent();
+		public static readonly BindableProperty NameProperty = BindableProperty.Create("name", typeof(string), typeof(PartnerOfferRecyclerView), "Name");
 
-			offer_name.Text = Name;
+		public string Name
+		{
+			get { return (string)GetValue(NameProperty); }
+			set { SetValue(NameProperty, value); }
+		}
+
+		protected override void OnBindingContextChanged()
+		{
+			base.OnBindingContextChanged();
+
+			if (BindingContext != null)
+			{
+				offer_name.Text = Name;
+			}
 		}
 	}
 }
