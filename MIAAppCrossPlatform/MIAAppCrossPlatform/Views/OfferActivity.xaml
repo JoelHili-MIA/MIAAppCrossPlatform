@@ -1,18 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              mc:Ignorable="d"
              WidthRequest="300"
-             x:Class="MIAAppCrossPlatform.Views.OfferActivity">
-    <ContentPage.Content>
+             x:Class="MIAAppCrossPlatform.Views.OfferActivity"
+             HasSystemPadding="True">
+    <pages:PopupPage.Content>
+        
         <ScrollView
             x:Name="offerScrollView"
             HorizontalOptions="Center"
             VerticalOptions="Center"
             VerticalScrollBarVisibility="Always">
-            
+
             <StackLayout
                 HorizontalOptions="Fill"
                 VerticalOptions="Fill"
@@ -24,7 +27,8 @@
                     WidthRequest="29"
                     HorizontalOptions="End"
                     Margin="8, 8, 8, 8"
-                    Source="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\close.png"/>
+                    Source="C:\Users\djult\Source\Repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\close.png"
+                    Clicked="imgBtnClose_Clicked"/>
 
                 <Image
                     x:Name="iv_logo"
@@ -103,7 +107,8 @@
                                 Margin="10, 10, 10, 0"
                                 BackgroundColor="#AA0A2F"
                                 Text="Check"
-                                TextColor="White"/>
+                                TextColor="White"
+                                Clicked="btn_partnerCode_Clicked"/>
                         </Grid>
                     </RelativeLayout>
 
@@ -145,11 +150,12 @@
                                 Margin="25, 10, 25, 20"
                                 BackgroundColor="#AA0A2F"
                                 Text="Save Discount"
-                                TextColor="White"/>
+                                TextColor="White"
+                                Clicked="btn_submitDiscount_Clicked"/>
                         </Grid>
                     </RelativeLayout>
                 </RelativeLayout>
             </StackLayout>
         </ScrollView>
-    </ContentPage.Content>
-</ContentPage>
+    </pages:PopupPage.Content>
+</pages:PopupPage>

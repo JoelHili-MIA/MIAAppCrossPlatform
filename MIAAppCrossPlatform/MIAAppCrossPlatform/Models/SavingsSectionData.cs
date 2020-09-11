@@ -6,11 +6,11 @@ namespace MIAAppCrossPlatform.Models
 {
 	class SavingsSectionData
 	{
-		public static string PartnerName;
-		public static string DateTime;
-		public static string Savings;
-		public static string Offer;
-		public static string CategoryName;
-		public static string Reference;
+		public string PartnerName { get; set; }
+		public string DateTime { get; set; }
+		public string Savings { get; set; }
+		public string Offer { get; set; }
+		public string CategoryName { get; set; }
+		public string Reference { get; set; }
 	}
 }
