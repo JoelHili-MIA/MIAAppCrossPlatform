@@ -23,7 +23,7 @@ namespace MIAAppCrossPlatform.Views
 		{
 			InitializeComponent();
 
-			setProfile();
+			setProfile().Wait();
 		}
 
 		private async Task setProfile()
@@ -42,6 +42,21 @@ namespace MIAAppCrossPlatform.Views
 					Session = i.Object.Session,
 					Surname = i.Object.Surname
 				}).Where(i => i.Id.Contains(App.User_ID));
+		}
+
+		private void itemTOS_Clicked(object sender, EventArgs e)
+		{
+			new AboutActivity();
+		}
+
+		private void itemEditProfile_Clicked(object sender, EventArgs e)
+		{
+			new EditDetailsActivity();
+		}
+
+		private void itemChangePassword_Clicked(object sender, EventArgs e)
+		{
+			new ChangePasswordActivity();
 		}
 	}
 }
