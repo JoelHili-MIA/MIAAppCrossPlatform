@@ -1,4 +1,6 @@
-﻿using MIAAppCrossPlatform.Models;
+﻿using Firebase.Database;
+using Firebase.Database.Query;
+using MIAAppCrossPlatform.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,7 @@ namespace MIAAppCrossPlatform.Views
 		private List<OfferData> offers;
 		private PartnerData partner;
 		bool isShowingOffers;
+		private FirebaseClient firebase;
 
 		public PartnerActivity()
 		{
@@ -92,7 +95,21 @@ namespace MIAAppCrossPlatform.Views
 			clickedPage.BindingContext = selected;
 
 			await Navigation.PushAsync(clickedPage, true);
-		} 
+		}
 		#endregion
+
+		private void add_to_favorites_Clicked(object sender, EventArgs e)
+		{
+			AddToFavorites().Wait();
+		}
+
+		private async Task AddToFavorites()
+		{
+			await firebase
+				.Child("credentials")
+				.Child(ProfileData.profile.Id)
+				.Child("savings")
+				.PostAsync(partner.PartnerName);
+		}
 	}
 }
