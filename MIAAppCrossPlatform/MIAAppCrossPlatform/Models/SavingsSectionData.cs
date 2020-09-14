@@ -12,5 +12,8 @@ namespace MIAAppCrossPlatform.Models
 		public string Offer { get; set; }
 		public string CategoryName { get; set; }
 		public string Reference { get; set; }
+		public string CategoryID { get; set; }
+		public string PartnerID { get; set; }
+		public string OfferID { get; set; }
 	}
 }

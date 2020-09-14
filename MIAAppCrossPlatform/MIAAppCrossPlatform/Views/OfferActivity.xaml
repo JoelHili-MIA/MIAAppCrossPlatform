@@ -118,7 +118,8 @@
                         <Grid
                             x:Name="layoutDiscount"
                             HorizontalOptions="Fill"
-                            VerticalOptions="Fill">
+                            VerticalOptions="Fill"
+                            IsEnabled="False">
 
                             <Label
                                 x:Name="tv_discountText"
