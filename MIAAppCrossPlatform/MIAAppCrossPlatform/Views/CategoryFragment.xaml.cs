@@ -44,12 +44,37 @@ namespace MIAAppCrossPlatform.Views
 			}
 		}
 
-		//Load the data required
+		#region Load The Data Required
 		private void LoadData()
 		{
 			GetCategoryData().Wait();//Get Data from "Categories" in the Firebase
 			GetPartnerData();//Get Data from CategoriesData Singleton
 		}
+
+		private void GetPartnerData()
+		{
+			var query = from PartnerData partner in CategoryData.Data
+						where partner.PartnerActive == "Yes"
+						select partner;
+
+			PartnerData.Data = query.ToList();
+		}
+
+		private async Task GetCategoryData()
+		{
+			CategoryData.Data = (await firebase
+				.Child("Categories")
+				.OnceAsync<CategoryData>()).Select(i => new CategoryData
+				{
+					partners = i.Object.partners,
+					active = i.Object.active,
+					id = i.Object.id,
+					name = i.Object.name,
+					picUrl = i.Object.picUrl,
+					urlLink = i.Object.urlLink
+				}).ToList();
+		}
+
 
 		private void LoadCategoryList(List<CategoryData> _input)
 		{
@@ -81,42 +106,19 @@ namespace MIAAppCrossPlatform.Views
 			};
 		}
 
+		private List<CategoryData> GetCategoryList()
+		{
+			return CategoryData.Data.Where(i => i.active == "Yes").ToList();
+		}
+		#endregion
+
 		private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			currentUserText = sender.ToString();
 			Filter(currentUserText);
 		}
 
-		private List<CategoryData> GetCategoryList()
-		{
-			return CategoryData.Data.Where(i => i.active == "Yes").ToList();
-		}
-
 		
-		private void GetPartnerData()
-		{
-			var query = from PartnerData partner in CategoryData.Data
-							   where partner.PartnerActive == "Yes"
-							   select partner;
-
-			PartnerData.Data = query.ToList();
-		}
-
-		private async Task GetCategoryData()
-		{
-			CategoryData.Data = (await firebase
-				.Child("Categories")
-				.OnceAsync<CategoryData>()).Select(i => new CategoryData
-				{
-					partners = i.Object.partners,
-					active = i.Object.active,
-					id = i.Object.id,
-					name = i.Object.name,
-					picUrl = i.Object.picUrl,
-					urlLink = i.Object.urlLink
-				}).ToList();
-		}
-
 		private void Filter(string input)
 		{
 			try

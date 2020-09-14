@@ -97,19 +97,46 @@ namespace MIAAppCrossPlatform.Views
 			await Navigation.PushAsync(clickedPage, true);
 		}
 		#endregion
-
-		private void add_to_favorites_Clicked(object sender, EventArgs e)
+		#region Favourites
+		private void checkFavourite()
 		{
-			AddToFavorites().Wait();
+			if (isFavourite().Result)//Is Favourited
+			{
+				add_to_favorites.IconImageSource = ImageSource.FromFile("favoriteFilled.png");
+			}
+			else//Isn't Favourited
+			{
+				add_to_favorites.IconImageSource = ImageSource.FromFile("favoriteEmpty.png");
+			}
 		}
 
-		private async Task AddToFavorites()
+		private async Task<bool> isFavourite()
+		{
+			List<FavoriteNameData> favouriteList = (await firebase
+											.Child("credentials")
+											.Child(ProfileData.profile.Id)
+											.Child("favourites")
+											.OnceAsync<FavoriteNameData>()).Select(i => new FavoriteNameData
+											{
+												name = i.Object.name
+											}).ToList();
+
+			return favouriteList.Where(i => i.name.Equals(partner.PartnerName)).Equals(partner.PartnerName);
+		}
+
+		private void add_to_favourites_Clicked(object sender, EventArgs e)
+		{
+			AddToFavourites().Wait();
+		}
+
+		private async Task AddToFavourites()
 		{
 			await firebase
 				.Child("credentials")
 				.Child(ProfileData.profile.Id)
-				.Child("savings")
+				.Child("favourites")
 				.PostAsync(partner.PartnerName);
-		}
+		} 
+		#endregion
 	}
 }

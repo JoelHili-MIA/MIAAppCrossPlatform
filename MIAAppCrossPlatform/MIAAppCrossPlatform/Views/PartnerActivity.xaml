@@ -10,7 +10,7 @@
         <ToolbarItem
             x:Name="add_to_favorites"
             IconImageSource="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\favoriteEmpty.png"
-            Clicked="add_to_favorites_Clicked"/>
+            Clicked="add_to_favourites_Clicked"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
