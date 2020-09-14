@@ -17,27 +17,25 @@ namespace MIAAppCrossPlatform.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginFragment : ContentView
 	{
-		string name, password, currentsession;
-		ChildQuery credentials;
 		FirebaseClient firebase;
 
-		private async Task saveAutoLogin()
+		private async Task SaveAutoLogin()
 		{
 			await SecureStorage.SetAsync("auto_user", et_idCard.Text);
 			await SecureStorage.SetAsync("auto_pass", et_password.Text);
 		}
 
-		private void btn_login_Clicked(object sender, EventArgs e)
+		private void Btn_login_Clicked(object sender, EventArgs e)
 		{
-			bool resultCheckPassword = checkPassword().Result;
-			bool resultCheckAccountActive = checkAccountActive().Result;
-			bool resultCheckAccountNew = checkAccountNew().Result;
+			bool resultCheckPassword = CheckPassword().Result;
+			bool resultCheckAccountActive = CheckAccountActive().Result;
+			bool resultCheckAccountNew = CheckAccountNew().Result;
 
 			if (resultCheckPassword && !resultCheckAccountNew && resultCheckAccountActive)//Account is good
 			{
 				if (chkRemember.IsChecked)
 				{
-					saveAutoLogin().Wait();
+					SaveAutoLogin().Wait();
 				}
 
 				new MainActivity();
@@ -60,7 +58,7 @@ namespace MIAAppCrossPlatform.Views
 			}
 		}
 
-		private async Task<bool> checkPassword()
+		private async Task<bool> CheckPassword()
 		{
 			return (await firebase
 				.Child("credentials")
@@ -79,7 +77,7 @@ namespace MIAAppCrossPlatform.Views
 				}).Where(q => q.Password.Contains(et_password.Text)).Equals(et_password);
 		}
 
-		private async Task<bool> checkAccountActive()
+		private async Task<bool> CheckAccountActive()
 		{
 			return (await firebase
 				.Child("credentials")
@@ -98,7 +96,7 @@ namespace MIAAppCrossPlatform.Views
 				}).Where(q => q.Active.Contains("Yes")).Equals("Yes");
 		}
 
-		private async Task<bool> checkAccountNew()
+		private async Task<bool> CheckAccountNew()
 		{
 			return (await firebase
 				.Child("credentials")
@@ -117,7 +115,7 @@ namespace MIAAppCrossPlatform.Views
 				}).Where(q => q.Password.Contains("")).Equals("");
 		}
 
-		private void btn_forgotPassword_Clicked(object sender, EventArgs e)
+		private void Btn_forgotPassword_Clicked(object sender, EventArgs e)
 		{
 			new ForgotPasswordActivity();
 		}
@@ -133,7 +131,6 @@ namespace MIAAppCrossPlatform.Views
 			validationText.Text = "";
 
 			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
-			credentials = firebase.Child("credentials");
 		}	
 	}
 }

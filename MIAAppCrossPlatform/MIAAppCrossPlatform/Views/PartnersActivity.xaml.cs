@@ -56,12 +56,12 @@ namespace MIAAppCrossPlatform.Views
 				.Child("Categories")
 				.OnceAsync<CategoryData>()).Select(i => new CategoryData
 				{
-					partners = i.Object.partners,
-					active = i.Object.active,
-					id = i.Object.id,
-					name = i.Object.name,
-					picUrl = i.Object.picUrl,
-					urlLink = i.Object.urlLink
+					Partners = i.Object.Partners,
+					Active = i.Object.Active,
+					Id = i.Object.Id,
+					Name = i.Object.Name,
+					PicUrl = i.Object.PicUrl,
+					UrlLink = i.Object.UrlLink
 				}).ToList();
 		}
 

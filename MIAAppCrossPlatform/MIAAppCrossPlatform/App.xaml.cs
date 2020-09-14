@@ -15,7 +15,7 @@ namespace MIAAppCrossPlatform
 {
 	public partial class App : Application
 	{
-		FirebaseClient firebase;
+		readonly FirebaseClient firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
 
 		public static string User_ID { get; set; }
 
@@ -26,9 +26,9 @@ namespace MIAAppCrossPlatform
 			DependencyService.Register<MockDataStore>();
 
 
-			if (autoLogin(getUsername().Result, getPassword().Result))
+			if (AutoLogin(GetUsername().Result, GetPassword().Result))
 			{
-				User_ID = getUsername().Result;
+				User_ID = GetUsername().Result;
 				MainPage = new MainActivity();
 			}
 			else
@@ -37,9 +37,9 @@ namespace MIAAppCrossPlatform
 			}
 		}
 
-		private bool autoLogin(string _username, string _password)
+		private bool AutoLogin(string _username, string _password)
 		{
-			if(checkPassword(_username,_password).Result && checkAccountActive(_username).Result)
+			if(CheckPassword(_username,_password).Result && CheckAccountActive(_username).Result)
 			{
 				return true;
 			}
@@ -49,16 +49,16 @@ namespace MIAAppCrossPlatform
 			}
 		}
 
-		private async Task<string> getUsername()
+		private async Task<string> GetUsername()
 		{
 			return await SecureStorage.GetAsync("auto_user");
 		}
-		private async Task<string> getPassword()
+		private async Task<string> GetPassword()
 		{
 			return await SecureStorage.GetAsync("auto_pass");
 		}
 
-		private async Task<bool> checkPassword(string _username, string _password)
+		private async Task<bool> CheckPassword(string _username, string _password)
 		{
 			return (await firebase
 				.Child("credentials")
@@ -77,7 +77,7 @@ namespace MIAAppCrossPlatform
 				}).Where(q => q.Password.Contains(_password)).Equals(_password);
 		}
 
-		private async Task<bool> checkAccountActive(string _username)
+		private async Task<bool> CheckAccountActive(string _username)
 		{
 			return (await firebase
 				.Child("credentials")

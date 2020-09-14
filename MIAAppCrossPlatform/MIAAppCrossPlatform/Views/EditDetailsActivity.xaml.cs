@@ -25,7 +25,7 @@ namespace MIAAppCrossPlatform.Views
 			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
 		}
 
-		private bool checkValidation()
+		private bool CheckValidation()
 		{
 			bool isCorrect = true;
 
@@ -68,7 +68,7 @@ namespace MIAAppCrossPlatform.Views
 				edit_email.Placeholder = "This field cannot be left blank!";
 				edit_email.PlaceholderColor = Color.Red;
 			}
-			else if (checkEmail(edit_email.Text))
+			else if (CheckEmail(edit_email.Text))
 			{
 				isCorrect = false;
 
@@ -100,7 +100,7 @@ namespace MIAAppCrossPlatform.Views
 			return isCorrect;
 		}
 
-		private bool checkEmail(string emailAddress)
+		private bool CheckEmail(string emailAddress)
 		{
 			try
 			{
@@ -113,7 +113,7 @@ namespace MIAAppCrossPlatform.Views
 			}
 		}
 
-		private async Task updateDetails()
+		private async Task UpdateDetails()
 		{
 			var toUpdate = (await firebase
 				.Child("credentials")
@@ -131,15 +131,15 @@ namespace MIAAppCrossPlatform.Views
 				});
 		}
 
-		private async void save_new_details_Clicked(object sender, EventArgs e)
+		private async void Save_new_details_Clicked(object sender, EventArgs e)
 		{
-			if (checkValidation())
+			if (CheckValidation())
 			{
 				bool ans = await DisplayAlert("Are you sure?", "This data will be permanently changed", "Yes", "No");
 
 				if (ans)
 				{
-					updateDetails().Wait();
+					UpdateDetails().Wait();
 					Plugin.Toast.CrossToastPopUp.Current.ShowToastMessage("Profile details have been updated");
 				}
 			}

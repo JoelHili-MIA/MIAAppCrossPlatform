@@ -10,9 +10,9 @@
             SelectedTabColor="#AA0A2F">
     
     <TabbedPage.ToolbarItems>
-        <ToolbarItem x:Name="itemTOS" Text = "Terms And Conditions" Order = "Secondary" Clicked="itemTOS_Clicked"  IsEnabled="True"/>
-        <ToolbarItem x:Name="itemChangePassword" Text = "Change Password" Order = "Secondary" Clicked="itemChangePassword_Clicked"  IsEnabled="True"/>
-        <ToolbarItem x:Name="itemEditProfile" Text = "Edit Profile" Order = "Secondary" Clicked="itemEditProfile_Clicked"  IsEnabled="True"/>
+        <ToolbarItem x:Name="itemTOS" Text = "Terms And Conditions" Order = "Secondary" Clicked="ItemTOS_Clicked"  IsEnabled="True"/>
+        <ToolbarItem x:Name="itemChangePassword" Text = "Change Password" Order = "Secondary" Clicked="ItemChangePassword_Clicked"  IsEnabled="True"/>
+        <ToolbarItem x:Name="itemEditProfile" Text = "Edit Profile" Order = "Secondary" Clicked="ItemEditProfile_Clicked"  IsEnabled="True"/>
     </TabbedPage.ToolbarItems>
     
     <!--Pages can be added as references or inline-->

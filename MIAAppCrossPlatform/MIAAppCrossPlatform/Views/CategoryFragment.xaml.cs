@@ -66,12 +66,12 @@ namespace MIAAppCrossPlatform.Views
 				.Child("Categories")
 				.OnceAsync<CategoryData>()).Select(i => new CategoryData
 				{
-					partners = i.Object.partners,
-					active = i.Object.active,
-					id = i.Object.id,
-					name = i.Object.name,
-					picUrl = i.Object.picUrl,
-					urlLink = i.Object.urlLink
+					Partners = i.Object.Partners,
+					Active = i.Object.Active,
+					Id = i.Object.Id,
+					Name = i.Object.Name,
+					PicUrl = i.Object.PicUrl,
+					UrlLink = i.Object.UrlLink
 				}).ToList();
 		}
 
@@ -105,11 +105,6 @@ namespace MIAAppCrossPlatform.Views
 				ItemTemplate = partnerCell
 			};
 		}
-
-		private List<CategoryData> GetCategoryList()
-		{
-			return CategoryData.Data.Where(i => i.active == "Yes").ToList();
-		}
 		#endregion
 
 		private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
@@ -133,7 +128,7 @@ namespace MIAAppCrossPlatform.Views
 						filteredCatList.Clear();
 						CategoryData c = (CategoryData)v;
 
-						if (c.name.ToLower().Contains(input.ToLower()))
+						if (c.Name.ToLower().Contains(input.ToLower()))
 						{
 							filteredCatList.Add(c);
 							searchTextValidation.Text = "";

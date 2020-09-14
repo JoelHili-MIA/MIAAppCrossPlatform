@@ -32,7 +32,7 @@
                 Placeholder="ID Card"
                 MaxLength="8"
                 FontSize="15"
-                Focused="et_idCard_Focused"/>
+                Focused="Et_idCard_Focused"/>
 
             <Entry
                 x:Name="et_email"
@@ -59,7 +59,7 @@
                 Placeholder="Password"
                 IsPassword="True"
                 FontSize="15"
-                Focused="et_password_Focused"/>
+                Focused="Et_password_Focused"/>
 
             <Entry
                 x:Name="et_repassword"
@@ -97,7 +97,7 @@
                 FontSize="16"
                 BackgroundColor="#AA0A2F"
                 TextColor="White"
-                Clicked="btn_register_Clicked"/>
+                Clicked="Btn_register_Clicked"/>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

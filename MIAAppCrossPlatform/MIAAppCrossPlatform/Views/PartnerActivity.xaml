@@ -10,7 +10,7 @@
         <ToolbarItem
             x:Name="add_to_favorites"
             IconImageSource="C:\Users\yformosa\source\repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\favoriteEmpty.png"
-            Clicked="add_to_favourites_Clicked"/>
+            Clicked="Add_to_favourites_Clicked"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
@@ -189,7 +189,7 @@
                     VerticalOptions="Fill"
                     Margin="0, 25, 0, 80"
                     SeparatorColor="#AA0A2F"
-                    ItemTapped="partner_offer_layout_ItemTapped">
+                    ItemTapped="Partner_offer_layout_ItemTapped">
 
                     </ListView>
                 </StackLayout>
@@ -204,7 +204,7 @@
                 Text="Show Offers"
                 BackgroundColor="#AA0A2F"
                 TextColor="White"
-                Clicked="show_offers_Clicked"/>
+                Clicked="Show_offers_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

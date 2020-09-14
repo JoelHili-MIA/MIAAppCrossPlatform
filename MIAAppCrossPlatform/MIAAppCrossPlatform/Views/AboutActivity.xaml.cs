@@ -14,14 +14,14 @@ namespace MIAAppCrossPlatform.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AboutActivity : ContentPage
 	{
-		FirebaseClient firebase;
+		readonly FirebaseClient firebase;
 		string hyperlink = "";
 
 		public AboutActivity()
 		{
 			InitializeComponent();
 
-			AboutData ad = getInstructions().Result;
+			AboutData ad = GetInstructions().Result;
 
 			tos.Text = ad.appTOS;
 			privacyPolicyText.Text = ad.appPrivacyPolicy;
@@ -30,7 +30,7 @@ namespace MIAAppCrossPlatform.Views
 			website_link.Text = hyperlink;
 		}
 
-		private async Task<AboutData> getInstructions()
+		private async Task<AboutData> GetInstructions()
 		{
 			return (await firebase
 				.Child("app-about")

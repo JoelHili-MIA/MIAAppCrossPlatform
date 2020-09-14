@@ -14,7 +14,7 @@
                 x:Name="favorite_partners"
                 HorizontalOptions="Fill"
                 VerticalOptions="Fill"
-                ItemTapped="favorite_partners_ItemTapped"/>
+                ItemTapped="Favorite_partners_ItemTapped"/>
 
             <ActivityIndicator
                 HorizontalOptions="Center"

@@ -24,20 +24,20 @@ namespace MIAAppCrossPlatform.Views
 			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
 		}
 
-		private void et_password_Focused(object sender, FocusEventArgs e)
+		private void Et_password_Focused(object sender, FocusEventArgs e)
 		{
 			CrossToastPopUp.Current.ShowToastWarning("Password Policy: A minimum of 8 characters with a combination of Lowercase, uppercase and numbers.");
 			
 		}
 
-		private void et_idCard_Focused(object sender, FocusEventArgs e)
+		private void Et_idCard_Focused(object sender, FocusEventArgs e)
 		{
 			CrossToastPopUp.Current.ShowToastWarning("Make sure you are part of the privilege scheme for MIA. Example of ab ID: 0123456M");
 		}
 
-		private bool isValidID()
+		private bool IsValidID()
 		{
-			if (getProfile().Result.Password.Equals("") && getProfile().Result.Active.Equals("yes"))
+			if (GetProfile().Result.Password.Equals("") && GetProfile().Result.Active.Equals("yes"))
 			{
 				return true;
 			}
@@ -47,7 +47,7 @@ namespace MIAAppCrossPlatform.Views
 			}
 		}
 
-		private async Task<ProfileData> getProfile()
+		private async Task<ProfileData> GetProfile()
 		{
 			return (ProfileData)(await firebase
 				.Child("credentials")
@@ -65,7 +65,7 @@ namespace MIAAppCrossPlatform.Views
 				}).Where(i => i.Id.Contains(et_idCard.Text));
 		}
 
-		private bool checkEmail(string emailAddress)
+		private bool CheckEmail(string emailAddress)
 		{
 			try
 			{
@@ -78,7 +78,7 @@ namespace MIAAppCrossPlatform.Views
 			}
 		}
 
-		private bool checkPassword(string password)
+		private bool CheckPassword(string password)
 		{
 			if(password.Length >= 8)
 			{
@@ -111,7 +111,7 @@ namespace MIAAppCrossPlatform.Views
 			return false;
 		}
 
-		private void btn_register_Clicked(object sender, EventArgs e)
+		private void Btn_register_Clicked(object sender, EventArgs e)
 		{
 			isCorrect = true;
 
@@ -124,7 +124,7 @@ namespace MIAAppCrossPlatform.Views
 				et_idCard.Placeholder = "Please enter your ID Card";
 				et_idCard.PlaceholderColor = Color.Red;
 			}
-			else if (!isValidID())
+			else if (!IsValidID())
 			{
 				isCorrect = false;
 
@@ -147,7 +147,7 @@ namespace MIAAppCrossPlatform.Views
 				et_email.Placeholder = "Please enter your email";
 				et_email.PlaceholderColor = Color.Red;
 			}
-			else if (checkEmail(et_email.Text))
+			else if (CheckEmail(et_email.Text))
 			{
 				et_email.Text = "";
 				et_email.Placeholder = "Please enter a valid email";
@@ -189,7 +189,7 @@ namespace MIAAppCrossPlatform.Views
 				et_password.Placeholder = "Please enter a password";
 				et_password.PlaceholderColor = Color.Red;
 			}
-			else if (checkPassword(et_password.Text))
+			else if (CheckPassword(et_password.Text))
 			{
 				et_password.Text = "";
 				et_password.Placeholder = "Please enter a valid password";

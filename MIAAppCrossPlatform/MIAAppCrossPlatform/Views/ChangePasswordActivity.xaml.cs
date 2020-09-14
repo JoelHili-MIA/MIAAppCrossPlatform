@@ -23,7 +23,7 @@ namespace MIAAppCrossPlatform.Views
 			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
 		}
 
-		private bool checkPassword(string password)
+		private bool CheckPassword(string password)
 		{
 			if (password.Length >= 8)
 			{
@@ -56,7 +56,7 @@ namespace MIAAppCrossPlatform.Views
 			return false;
 		}
 
-		private void save_new_password_Clicked(object sender, EventArgs e)
+		private void Save_new_password_Clicked(object sender, EventArgs e)
 		{
 			bool isCorrect = true;
 
@@ -69,7 +69,7 @@ namespace MIAAppCrossPlatform.Views
 				edit_new_password.Placeholder = "Please enter a password";
 				edit_new_password.PlaceholderColor = Color.Red;
 			}
-			else if (checkPassword(edit_new_password.Text))
+			else if (CheckPassword(edit_new_password.Text))
 			{
 				edit_new_password.Text = "";
 				edit_new_password.Placeholder = "Please enter a valid password";
@@ -103,12 +103,12 @@ namespace MIAAppCrossPlatform.Views
 
 			if (isCorrect)
 			{
-				savePassword().Wait();
+				SavePassword().Wait();
 				Plugin.Toast.CrossToastPopUp.Current.ShowToastMessage("Changed Password");
 			}
 		}
 
-		private async Task savePassword()
+		private async Task SavePassword()
 		{
 			var toUpdate = (await firebase
 				.Child("credentials")

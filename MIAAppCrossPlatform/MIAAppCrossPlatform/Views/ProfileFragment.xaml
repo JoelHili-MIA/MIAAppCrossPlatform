@@ -172,7 +172,7 @@
                 BackgroundColor="#AA0A2F"
                 TextColor="White"
                 Text="My Savings"
-                Clicked="btn_MySavings_Clicked"/>
+                Clicked="Btn_MySavings_Clicked"/>
 
             <Button
                 x:Name="logoutBtn"
@@ -183,7 +183,7 @@
                 BackgroundColor="#AA012F"
                 TextColor="White"
                 Text="Log Out"
-                Clicked="logoutBtn_Clicked"/>
+                Clicked="LogoutBtn_Clicked"/>
             
         </StackLayout>
   </ContentView.Content>

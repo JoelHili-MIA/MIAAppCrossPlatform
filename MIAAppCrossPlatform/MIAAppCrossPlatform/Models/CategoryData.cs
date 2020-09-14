@@ -7,11 +7,11 @@ namespace MIAAppCrossPlatform.Models
 	class CategoryData
 	{
 		public static List<CategoryData> Data;
-		public List<PartnerData> partners { get; set; }
-		public string active { get; set; }
-		public string id { get; set; }
-		public string name { get; set; }
-		public string picUrl { get; set; }
-		public string urlLink { get; set; }
+		public List<PartnerData> Partners { get; set; }
+		public string Active { get; set; }
+		public string Id { get; set; }
+		public string Name { get; set; }
+		public string PicUrl { get; set; }
+		public string UrlLink { get; set; }
 	}
 }

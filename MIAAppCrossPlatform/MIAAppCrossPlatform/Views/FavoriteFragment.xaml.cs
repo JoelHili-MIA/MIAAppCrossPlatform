@@ -22,10 +22,10 @@ namespace MIAAppCrossPlatform.Views
 
 			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
 
-			displayData();
+			DisplayData();
 		}
 
-		private void displayData()
+		private void DisplayData()
 		{
 			var FavoriteCell = new DataTemplate(typeof(FavouritePartners));
 			FavoriteCell.SetBinding(FavouritePartners.CategoryNameProperty, "Category");
@@ -39,7 +39,7 @@ namespace MIAAppCrossPlatform.Views
 			};
 		}
 
-		private async void favorite_partners_ItemTapped(object sender, ItemTappedEventArgs e)
+		private async void Favorite_partners_ItemTapped(object sender, ItemTappedEventArgs e)
 		{
 			FavoriteData selected = (FavoriteData)favorite_partners.SelectedItem;
 			PartnerData partner = PartnerData.Data.First(i => i.PartnerName.ToLower().Equals(selected.PartnerName.ToLower()));
@@ -49,5 +49,7 @@ namespace MIAAppCrossPlatform.Views
 
 			await Navigation.PushAsync(clickedPage, true);
 		}
+
+
 	}
 }

@@ -6,9 +6,9 @@ namespace MIAAppCrossPlatform.Models
 {
 	class OfferData
 	{
-		public string dateTime { get; set; }
-		public string offerActive { get; set; }
-		public string offerName { get; set; }
-		public string offerTOS { get; set; }
+		public string DateTime { get; set; }
+		public string OfferActive { get; set; }
+		public string OfferName { get; set; }
+		public string OfferTOS { get; set; }
 	}
 }

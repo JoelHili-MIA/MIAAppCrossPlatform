@@ -15,23 +15,24 @@ namespace MIAAppCrossPlatform.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PartnerActivity : ContentPage
 	{
-		private List<OfferData> offers;
 		private PartnerData partner;
 		bool isShowingOffers;
 		private FirebaseClient firebase;
 
 		public PartnerActivity()
 		{
+			CheckFavourite();
+
 			InitializeComponent();
 
 			partner = (PartnerData)this.BindingContext;
 			isShowingOffers = false;
 
-			showData();
+			ShowData();
 		}
 
 		#region Load the data
-		private void showData()
+		private void ShowData()
 		{
 			P_name.Text = partner.PartnerName;
 			pa_addressData.Text = partner.Address;
@@ -40,10 +41,10 @@ namespace MIAAppCrossPlatform.Views
 			pa_websiteData.Text = partner.Website;
 			pa_tosData.Text = partner.Tos;
 
-			loadOffers();
+			LoadOffers();
 		}
 
-		private void loadOffers()
+		private void LoadOffers()
 		{
 			var cell = new DataTemplate(typeof(PartnerOfferRecyclerView));
 			cell.SetBinding(PartnerOfferRecyclerView.NameProperty, "Name");
@@ -57,29 +58,29 @@ namespace MIAAppCrossPlatform.Views
 
 		#endregion
 		#region Handle Show/Hide Offers Button
-		private void show_offers_Clicked(object sender, EventArgs e)
+		private void Show_offers_Clicked(object sender, EventArgs e)
 		{
 			if (isShowingOffers)
 			{
 				show_offers.Text = "Show Offers";
 				isShowingOffers = false;
-				hideOffers();
+				HideOffers();
 			}
 			else
 			{
 				show_offers.Text = "Hide Offers";
 				isShowingOffers = true;
-				displayOffers();
+				DisplayOffers();
 			}
 		}
 
-		private void hideOffers()
+		private void HideOffers()
 		{
 			OffersView.Margin = new Thickness(20, 0);
 			OffersView.Padding = new Thickness(1);
 			PartnerView.IsVisible = true;
 		}
-		private void displayOffers()
+		private void DisplayOffers()
 		{
 			OffersView.Margin = new Thickness(0, 0);
 			OffersView.Padding = new Thickness(15);
@@ -87,20 +88,22 @@ namespace MIAAppCrossPlatform.Views
 		}
 		#endregion
 		#region Offer Clicked
-		private async void partner_offer_layout_ItemTapped(object sender, ItemTappedEventArgs e)
+		private async void Partner_offer_layout_ItemTapped(object sender, ItemTappedEventArgs e)
 		{
 			OfferData selected = (OfferData)partner_offer_layout.SelectedItem;
 
-			var clickedPage = new OfferActivity();
-			clickedPage.BindingContext = selected;
+			var clickedPage = new OfferActivity
+			{
+				BindingContext = selected
+			};
 
 			await Navigation.PushAsync(clickedPage, true);
 		}
 		#endregion
 		#region Favourites
-		private void checkFavourite()
+		private void CheckFavourite()
 		{
-			if (isFavourite().Result)//Is Favourited
+			if (IsFavourite().Result)//Is Favourited
 			{
 				add_to_favorites.IconImageSource = ImageSource.FromFile("favoriteFilled.png");
 			}
@@ -110,7 +113,7 @@ namespace MIAAppCrossPlatform.Views
 			}
 		}
 
-		private async Task<bool> isFavourite()
+		private async Task<bool> IsFavourite()
 		{
 			List<FavoriteNameData> favouriteList = (await firebase
 											.Child("credentials")
@@ -118,13 +121,13 @@ namespace MIAAppCrossPlatform.Views
 											.Child("favourites")
 											.OnceAsync<FavoriteNameData>()).Select(i => new FavoriteNameData
 											{
-												name = i.Object.name
+												Name = i.Object.Name
 											}).ToList();
 
-			return favouriteList.Where(i => i.name.Equals(partner.PartnerName)).Equals(partner.PartnerName);
+			return favouriteList.Where(i => i.Name.Equals(partner.PartnerName)).Equals(partner.PartnerName);
 		}
 
-		private void add_to_favourites_Clicked(object sender, EventArgs e)
+		private void Add_to_favourites_Clicked(object sender, EventArgs e)
 		{
 			AddToFavourites().Wait();
 		}

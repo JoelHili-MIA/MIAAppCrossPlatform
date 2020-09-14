@@ -29,7 +29,7 @@ namespace MIAAppCrossPlatform.Views
 			Mobile_Number.Text = ProfileData.profile.Mobile;
 		}
 
-		private async void logoutBtn_Clicked(object sender, EventArgs e)
+		private async void LogoutBtn_Clicked(object sender, EventArgs e)
 		{
 			bool ans = await alert.DisplayAlert("Log Out","Are you sure you want to log out of your account?","Yes","No");
 
@@ -40,7 +40,7 @@ namespace MIAAppCrossPlatform.Views
 			}
 		}
 
-		private void btn_MySavings_Clicked(object sender, EventArgs e)
+		private void Btn_MySavings_Clicked(object sender, EventArgs e)
 		{
 			new SavingsSectionActivity();
 		}

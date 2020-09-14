@@ -28,7 +28,7 @@
                     HorizontalOptions="End"
                     Margin="8, 8, 8, 8"
                     Source="C:\Users\djult\Source\Repos\MIAAppCrossPlatform\MIAAppCrossPlatform\MIAAppCrossPlatform\Icons\close.png"
-                    Clicked="imgBtnClose_Clicked"/>
+                    Clicked="ImgBtnClose_Clicked"/>
 
                 <Image
                     x:Name="iv_logo"
@@ -108,7 +108,7 @@
                                 BackgroundColor="#AA0A2F"
                                 Text="Check"
                                 TextColor="White"
-                                Clicked="btn_partnerCode_Clicked"/>
+                                Clicked="Btn_partnerCode_Clicked"/>
                         </Grid>
                     </RelativeLayout>
 
@@ -152,7 +152,7 @@
                                 BackgroundColor="#AA0A2F"
                                 Text="Save Discount"
                                 TextColor="White"
-                                Clicked="btn_submitDiscount_Clicked"/>
+                                Clicked="Btn_submitDiscount_Clicked"/>
                         </Grid>
                     </RelativeLayout>
                 </RelativeLayout>

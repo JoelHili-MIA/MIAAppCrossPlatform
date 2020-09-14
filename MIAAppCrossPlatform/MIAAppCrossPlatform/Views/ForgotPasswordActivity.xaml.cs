@@ -27,7 +27,7 @@ namespace MIAAppCrossPlatform.Views
 			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
 		}
 
-		private async Task<bool> checkEmailExists()
+		private async Task<bool> CheckEmailExists()
 		{
 			var tProfile = (await firebase
 				.Child("credentials")
@@ -41,7 +41,7 @@ namespace MIAAppCrossPlatform.Views
 			}
 			else if(tProfile.Email != "")//Correct
 			{
-				sendEmail(tProfile);
+				SendEmail(tProfile);
 
 				return true;
 			}
@@ -53,9 +53,9 @@ namespace MIAAppCrossPlatform.Views
 			}
 		}
 
-		private void sendEmail(ProfileData _profile)
+		private void SendEmail(ProfileData _profile)
 		{
-			generatedCode = generateCode();
+			generatedCode = GenerateCode();
 			string fromEmail = "miamaltaresetpass@gmail.com".Trim();
 			string fromPassword = "Qbim0719";
 			string emailSubject = "MIA Privilege Scheme App – Reset of Password";
@@ -63,7 +63,7 @@ namespace MIAAppCrossPlatform.Views
 			SendEmailTask.SendEmail(fromEmail, _profile.Email, emailSubject, emailBody, fromEmail, fromPassword);
 		}
 
-		private string generateCode()
+		private string GenerateCode()
 		{
 			string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 			char[] code = new char[8];
@@ -77,17 +77,17 @@ namespace MIAAppCrossPlatform.Views
 			return new string(code);
 		}
 
-		private void btnSendEmail_Clicked(object sender, EventArgs e)
+		private void BtnSendEmail_Clicked(object sender, EventArgs e)
 		{
 			btnSendEmail.IsEnabled = false;
 
-			if (checkEmailExists().Result)
+			if (CheckEmailExists().Result)
 			{
 				iv_verification.IsVisible = true;
 			}
 		}
 
-		private async void btnContinue_Clicked(object sender, EventArgs e)
+		private void BtnContinue_Clicked(object sender, EventArgs e)
 		{
 			double recoveryTime = 3f;
 			double startTime = 0f;

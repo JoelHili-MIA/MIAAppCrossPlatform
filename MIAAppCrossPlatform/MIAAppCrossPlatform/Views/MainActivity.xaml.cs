@@ -23,10 +23,10 @@ namespace MIAAppCrossPlatform.Views
 		{
 			InitializeComponent();
 
-			setProfile().Wait();
+			SetProfile().Wait();
 		}
 
-		private async Task setProfile()
+		private async Task SetProfile()
 		{
 			ProfileData.profile = (ProfileData)(await firebase
 				.Child("credentials")
@@ -44,17 +44,17 @@ namespace MIAAppCrossPlatform.Views
 				}).Where(i => i.Id.Contains(App.User_ID));
 		}
 
-		private void itemTOS_Clicked(object sender, EventArgs e)
+		private void ItemTOS_Clicked(object sender, EventArgs e)
 		{
 			new AboutActivity();
 		}
 
-		private void itemEditProfile_Clicked(object sender, EventArgs e)
+		private void ItemEditProfile_Clicked(object sender, EventArgs e)
 		{
 			new EditDetailsActivity();
 		}
 
-		private void itemChangePassword_Clicked(object sender, EventArgs e)
+		private void ItemChangePassword_Clicked(object sender, EventArgs e)
 		{
 			new ChangePasswordActivity();
 		}

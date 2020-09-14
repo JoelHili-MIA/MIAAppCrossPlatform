@@ -29,19 +29,19 @@ namespace MIAAppCrossPlatform.Views
 			InitializeComponent();
 
 			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
-			getOfferDetails();
+			GetOfferDetails();
 		}
 
-		private void btn_partnerCode_Clicked(object sender, EventArgs e)//When "Check" button is clicked
+		private void Btn_partnerCode_Clicked(object sender, EventArgs e)//When "Check" button is clicked
 		{
-			verifyCode();
+			VerifyCode();
 		}
 
-		private void btn_submitDiscount_Clicked(object sender, EventArgs e)//When "Save Discount" button is clicked
+		private void Btn_submitDiscount_Clicked(object sender, EventArgs e)//When "Save Discount" button is clicked
 		{
 			if(et_discountAmount.Text.Length > 0)
 			{
-				saveDiscount();
+				SaveDiscount();
 			}
 			else
 			{
@@ -49,7 +49,7 @@ namespace MIAAppCrossPlatform.Views
 			}
 		}
 
-		private async void imgBtnClose_Clicked(object sender, EventArgs e)
+		private async void ImgBtnClose_Clicked(object sender, EventArgs e)
 		{
 			await PopupNavigation.Instance.PopAsync();//Close the popup
 		}
@@ -59,41 +59,43 @@ namespace MIAAppCrossPlatform.Views
 			return true;//ToTest - Should Close
 		}
 
-		private void saveDiscount()
+		private void SaveDiscount()
 		{
-			SavingsSectionData toSave = new SavingsSectionData();
+			SavingsSectionData toSave = new SavingsSectionData
+			{
 
-			//Get Random Reference Number
-			toSave.Reference = GenerateRandom(25);
+				//Get Random Reference Number
+				Reference = GenerateRandom(25),
 
-			//Get The Current Date And Time And Form into (dd-MM-yyyy hh:mm a)
-			toSave.DateTime = DateTime.Now.ToString("dd-MM-yyyy hh:mm tt");
+				//Get The Current Date And Time And Form into (dd-MM-yyyy hh:mm a)
+				DateTime = DateTime.Now.ToString("dd-MM-yyyy hh:mm tt"),
 
-			//Get Category Name
-			toSave.CategoryName = category.name;
+				//Get Category Name
+				CategoryName = category.Name,
 
-			//Get Patner Name
-			toSave.PartnerName = partner.PartnerName;
+				//Get Patner Name
+				PartnerName = partner.PartnerName,
 
-			//Get Offer Name
-			toSave.Offer = offer.offerName;
+				//Get Offer Name
+				Offer = offer.OfferName,
 
-			//Get Category ID
-			toSave.CategoryID = category.id;
+				//Get Category ID
+				CategoryID = category.Id,
 
-			//Get Partner ID
-			toSave.PartnerID = partner.PartnerName;
+				//Get Partner ID
+				PartnerID = partner.PartnerName,
 
-			//Get Offer ID
-			toSave.OfferID = offer.offerName;
+				//Get Offer ID
+				OfferID = offer.OfferName,
 
-			//Get Discount Amount
-			toSave.Savings = string.Format("{0}.2f",float.Parse(et_discountAmount.Text));//ToImplement
+				//Get Discount Amount
+				Savings = string.Format("{0}.2f", float.Parse(et_discountAmount.Text))//ToImplement
+			};
 
-			submitToFirebase(toSave).Wait();
+			SubmitToFirebase(toSave).Wait();
 		}
 
-		private async Task submitToFirebase(SavingsSectionData _toSave)
+		private async Task SubmitToFirebase(SavingsSectionData _toSave)
 		{
 			await firebase
 				.Child("credentials")
@@ -109,7 +111,7 @@ namespace MIAAppCrossPlatform.Views
 			return new string(Enumerable.Repeat(allowedCharacters, _size).Select(s => s[random.Next(s.Length)]).ToArray());
 		}
 
-		private void verifyCode()
+		private void VerifyCode()
 		{
 			if (et_partnerCode.Text.Length == 0)
 			{
@@ -117,7 +119,7 @@ namespace MIAAppCrossPlatform.Views
 			}
 			else if(et_partnerCode.Text.Equals(partner.PartnerCode))
 			{
-				showDiscountQuery();
+				ShowDiscountQuery();
 			}
 			else
 			{
@@ -125,7 +127,7 @@ namespace MIAAppCrossPlatform.Views
 			}
 		}
 
-		private void showDiscountQuery()
+		private void ShowDiscountQuery()
 		{
 			et_partnerCode.Text = "";
 			et_partnerCode.IsEnabled = false;
@@ -134,20 +136,20 @@ namespace MIAAppCrossPlatform.Views
 		}
 
 		#region Get All Data Required
-		private void getOfferDetails()
+		private void GetOfferDetails()
 		{
 			offer = (OfferData)this.BindingContext;
-			getOfferPartner();
-			getOfferCategory();
+			GetOfferPartner();
+			GetOfferCategory();
 		}
 
-		private void getOfferPartner()
+		private void GetOfferPartner()
 		{
 			foreach (PartnerData p in PartnerData.Data)
 			{
 				foreach (OfferData o in p.Offers)
 				{
-					if (o.offerName.Equals(offer.offerName))
+					if (o.OfferName.Equals(offer.OfferName))
 					{
 						partner = p;
 					}
@@ -155,11 +157,11 @@ namespace MIAAppCrossPlatform.Views
 			}
 		}
 
-		private void getOfferCategory()
+		private void GetOfferCategory()
 		{
 			foreach (CategoryData c in CategoryData.Data)
 			{
-				foreach (PartnerData p in c.partners)
+				foreach (PartnerData p in c.Partners)
 				{
 					if (p.PartnerName.Equals(partner.PartnerName))
 					{
