@@ -14,13 +14,9 @@ namespace MIAAppCrossPlatform.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class FavoriteFragment : ContentView
 	{
-		FirebaseClient firebase;
-
 		public FavoriteFragment()
 		{
 			InitializeComponent();
-
-			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
 
 			DisplayData();
 		}
@@ -49,7 +45,5 @@ namespace MIAAppCrossPlatform.Views
 
 			await Navigation.PushAsync(clickedPage, true);
 		}
-
-
 	}
 }
