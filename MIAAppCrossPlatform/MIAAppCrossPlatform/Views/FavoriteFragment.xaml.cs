@@ -40,8 +40,10 @@ namespace MIAAppCrossPlatform.Views
 			FavoriteData selected = (FavoriteData)favorite_partners.SelectedItem;
 			PartnerData partner = PartnerData.Data.First(i => i.PartnerName.ToLower().Equals(selected.PartnerName.ToLower()));
 
-			var clickedPage = new PartnerActivity();
-			clickedPage.BindingContext = partner;
+			var clickedPage = new PartnerActivity
+			{
+				BindingContext = partner
+			};
 
 			await Navigation.PushAsync(clickedPage, true);
 		}
