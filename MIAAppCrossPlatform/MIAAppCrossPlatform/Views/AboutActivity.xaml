@@ -5,15 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:local="clr-namespace:MIAAppCrossPlatform"
-             x:Class="MIAAppCrossPlatform.Views.AboutActivity">
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem
-            Order="Primary"
-            Priority="0"
-            Name="Back"
-            Icon="BackIcon"/>
-    </ContentPage.ToolbarItems>
+             x:Class="MIAAppCrossPlatform.Views.AboutActivity"
+             Title="MIA Info">
 
     <ContentPage.Content>
         <ScrollView
