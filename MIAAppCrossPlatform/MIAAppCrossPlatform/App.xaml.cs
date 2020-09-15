@@ -39,11 +39,18 @@ namespace MIAAppCrossPlatform
 
 		private bool AutoLogin(string _username, string _password)
 		{
-			if(CheckPassword(_username,_password).Result && CheckAccountActive(_username).Result)
+			try
 			{
-				return true;
+				if (CheckPassword(_username, _password).Result && CheckAccountActive(_username).Result)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
 			}
-			else
+			catch (Exception)
 			{
 				return false;
 			}
