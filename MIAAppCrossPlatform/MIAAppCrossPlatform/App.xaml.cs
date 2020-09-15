@@ -29,11 +29,13 @@ namespace MIAAppCrossPlatform
 			if (AutoLogin(GetUsername().Result, GetPassword().Result))
 			{
 				User_ID = GetUsername().Result;
-				MainPage = new MainActivity();
+				Console.WriteLine("Auto Accepted");
+				MainPage = new NavigationPage(new MainActivity());
 			}
 			else
 			{
-				MainPage = new LogAndRegActivity();
+				Console.WriteLine("Auto Decline");
+				MainPage = new NavigationPage(new LogAndRegActivity());
 			}
 		}
 
