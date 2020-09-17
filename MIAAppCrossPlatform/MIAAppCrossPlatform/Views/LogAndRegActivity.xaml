@@ -7,13 +7,11 @@
              mc:Ignorable="d"
              x:Class="MIAAppCrossPlatform.Views.LogAndRegActivity">
 
-    <TabbedPage.Children>
-        <NavigationPage BarBackgroundColor="White" Title="Login">
-            
-        </NavigationPage>
-
-        <NavigationPage Title="Register">
-        </NavigationPage>
-        
-    </TabbedPage.Children>
+    <ContentPage Title="Login">
+        <views:LoginFragment/>
+    </ContentPage>
+    
+    <ContentPage Title="Register">
+        <views:RegisterFragment/>
+    </ContentPage>
 </TabbedPage>

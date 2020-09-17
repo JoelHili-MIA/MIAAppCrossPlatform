@@ -6,8 +6,9 @@
              mc:Ignorable="d"
              x:Class="MIAAppCrossPlatform.Views.RegisterFragment">
   <ContentView.Content>
-        <StackLayout HorizontalOptions="Fill">
-            <Label
+        <ScrollView>
+            <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label
                 x:Name="tv_logo"
                 HorizontalOptions="Fill"
                 VerticalOptions="Start"
@@ -15,7 +16,7 @@
                 Text="Register"
                 FontSize="45"/>
 
-            <Label
+                <Label
                 x:Name="tv_subtitle"
                 HorizontalOptions="Fill"
                 VerticalOptions="Start"
@@ -24,7 +25,7 @@
                 FontSize="17"
                 TextColor="#9D9D9C"/>
 
-            <Entry
+                <Entry
                 x:Name="et_idCard"
                 HorizontalOptions="Fill"
                 HeightRequest="50"
@@ -34,7 +35,7 @@
                 FontSize="15"
                 Focused="Et_idCard_Focused"/>
 
-            <Entry
+                <Entry
                 x:Name="et_email"
                 HorizontalOptions="Fill"
                 HeightRequest="50"
@@ -42,7 +43,7 @@
                 Placeholder="Email"
                 FontSize="15"/>
 
-            <Entry
+                <Entry
                 x:Name="et_mobile"
                 HorizontalOptions="Fill"
                 HeightRequest="50"
@@ -51,7 +52,7 @@
                 Keyboard="Telephone"
                 FontSize="15"/>
 
-            <Entry
+                <Entry
                 x:Name="et_password"
                 HorizontalOptions="Fill"
                 HeightRequest="50"
@@ -61,7 +62,7 @@
                 FontSize="15"
                 Focused="Et_password_Focused"/>
 
-            <Entry
+                <Entry
                 x:Name="et_repassword"
                 HorizontalOptions="Fill"
                 HeightRequest="50"
@@ -70,7 +71,7 @@
                 IsPassword="True"
                 FontSize="15"/>
 
-            <Label
+                <Label
                 x:Name="tv_validationText"
                 HorizontalOptions="Start"
                 VerticalOptions="Start"
@@ -78,7 +79,7 @@
                 Text="Validation Text"
                 FontSize="15"/>
 
-            <View
+                <View
                 x:Name="divider"
                 HorizontalOptions="Fill"
                 VerticalOptions="End"
@@ -86,7 +87,7 @@
                 Margin="0, 0, 0, 15"
                 BackgroundColor="Black"/>
 
-            <Button
+                <Button
                 x:Name="btn_register"
                 WidthRequest="120"
                 HeightRequest="60"
@@ -98,6 +99,7 @@
                 BackgroundColor="#AA0A2F"
                 TextColor="White"
                 Clicked="Btn_register_Clicked"/>
-        </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentView.Content>
 </ContentView>
