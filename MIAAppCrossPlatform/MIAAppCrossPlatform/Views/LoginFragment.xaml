@@ -7,28 +7,29 @@
              x:Class="MIAAppCrossPlatform.Views.LoginFragment">
   <ContentView.Content>
         <ScrollView>
-            <RelativeLayout
-                HorizontalOptions="Fill"
-                VerticalOptions="Fill">
-                
-                <StackLayout
+            <StackLayout
                 HorizontalOptions="Fill"
                 VerticalOptions="Fill">
 
-                    <ScrollView
+                <ScrollView
                     x:Name="svLogin"
                     HorizontalOptions="Fill"
-                    VerticalOptions="Start">
+                    VerticalOptions="Fill">
 
-                        <StackLayout>
-                            <Image
+                    <StackLayout
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Fill"
+                            Margin="0"
+                            Padding="0">
+                        
+                        <Image
                             x:Name="imageView3"
                             HorizontalOptions="Center"
                             VerticalOptions="Start"
                             Margin="100, 30, 100, 25"
-                            Source="Logo"/>
+                            Source="{OnPlatform Android=@drawable/Logo, iOS=Logo}"/>
 
-                            <Label
+                        <Label
                             x:Name="tv_title"
                             HorizontalOptions="Fill"
                             VerticalOptions="Start"
@@ -38,7 +39,7 @@
                             FontSize="26"
                             FontAttributes="Bold"/>
 
-                            <Label
+                        <Label
                             x:Name="tv_subtitle"
                             HorizontalOptions="Fill"
                             VerticalOptions="Start"
@@ -47,7 +48,7 @@
                             HorizontalTextAlignment="Center"
                             FontSize="17"/>
 
-                            <Entry
+                        <Entry
                             x:Name="et_idCard"
                             HorizontalOptions="Fill"
                             VerticalOptions="Center"
@@ -56,7 +57,7 @@
                             FontSize="15"
                             MaxLength="8"/>
 
-                            <Entry
+                        <Entry
                             x:Name="et_password"
                             HorizontalOptions="Fill"
                             VerticalOptions="Center"
@@ -65,23 +66,23 @@
                             IsPassword="True"
                             FontSize="15"/>
 
-                            <Grid
+                        <Grid
                             x:Name="containerFeature"
                             HorizontalOptions="Fill"
                             VerticalOptions="Center"
-                            HeightRequest="50"
+                            HeightRequest="150"
                             Margin="25, 0, 25, 20">
 
-                                <CheckBox
+                            <CheckBox
                                 x:Name="chkRemember"
                                 HorizontalOptions="End"
                                 WidthRequest="165"
                                 HeightRequest="49"
                                 Grid.Column="0"
-                                Margin="0, 1, 0, 0"
+                                Margin="0, 0, 0, 0"
                                 Color="#AA0A2F"/>
 
-                                <Label
+                            <Label
                                 x:Name="chkRemember_text"
                                 HorizontalOptions="Start"
                                 VerticalOptions="Center"
@@ -90,60 +91,44 @@
                                 Text="Remember me"
                                 MaxLines="1"/>
 
-                                <Button
+                            <Button
                                 x:Name="btn_forgotPassword"
                                 HorizontalOptions="FillAndExpand"
-                                VerticalOptions="End"
+                                VerticalOptions="Center"
                                 Grid.Column="4"
                                 Grid.ColumnSpan="4"
                                 Text="Forgot Password"
                                 BackgroundColor="#AA0A2F"
                                 TextColor="White"
                                 Clicked="Btn_forgotPassword_Clicked"/>
-                            </Grid>
-                            <Label
+                        </Grid>
+                        <Label
                             x:Name="validationText"
                             HorizontalOptions="Center"
                             VerticalOptions="End"
                             FontSize="15"/>
-                        </StackLayout>
-                    </ScrollView>
 
-                    <View
-                    x:Name="divider"
-                    HorizontalOptions="Fill"
-                    VerticalOptions="Start"
-                    HeightRequest="0.5"
-                    BackgroundColor="Black"/>
+                        <Button
+                                x:Name="btn_login"
+                                WidthRequest="120"
+                                HeightRequest="60"
+                                HorizontalOptions="Center"
+                                VerticalOptions="End"
+                                Margin="8, 20, 8, 20"
+                                Text="Sign in"
+                                FontSize="16"
+                                BackgroundColor="#AA0A2F"
+                                TextColor="White"
+                                Clicked="Btn_login_Clicked"/>
 
-                    <Button
-                    x:Name="btn_login"
-                    WidthRequest="120"
-                    HeightRequest="60"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    Margin="8, 20, 8, 20"
-                    Text="Sign in"
-                    FontSize="16"
-                    BackgroundColor="#AA0A2F"
-                    TextColor="White"
-                    Clicked="Btn_login_Clicked"/>
-
-                    <Label
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"
-                    Margin="50, 0, 50, 20"
-                    Text="If you are new, register your account first."/>
-
-                </StackLayout>
-
-                <ActivityIndicator
-                x:Name="buffer"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Color="#AA0A2F"/>
-
-            </RelativeLayout>
+                        <Label
+                                HorizontalOptions="Center"
+                                VerticalOptions="End"
+                                Margin="50, 0, 50, 20"
+                                Text="If you are new, register your account first."/>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
         </ScrollView>
   </ContentView.Content>
 </ContentView>

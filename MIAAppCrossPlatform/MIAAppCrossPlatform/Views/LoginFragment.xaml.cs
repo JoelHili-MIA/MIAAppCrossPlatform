@@ -127,7 +127,6 @@ namespace MIAAppCrossPlatform.Views
 			InitializeComponent();
 
 			chkRemember.IsChecked = false;
-			buffer.IsVisible = false;
 			validationText.Text = "";
 
 			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
