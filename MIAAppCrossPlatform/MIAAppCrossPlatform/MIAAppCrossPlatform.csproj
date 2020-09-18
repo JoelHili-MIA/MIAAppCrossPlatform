@@ -11,25 +11,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Icons\accountCircle.png" />
-    <EmbeddedResource Include="Icons\close.png" />
-    <EmbeddedResource Include="Icons\creditCard.png" />
-    <EmbeddedResource Include="Icons\email.png" />
-    <EmbeddedResource Include="Icons\favoriteEmpty.png" />
-    <EmbeddedResource Include="Icons\favoriteFilled.png" />
-    <EmbeddedResource Include="Icons\home.png" />
-    <EmbeddedResource Include="Icons\info.png" />
-    <EmbeddedResource Include="Icons\list.png" />
-    <EmbeddedResource Include="Icons\mobilePhone.png" />
-    <EmbeddedResource Include="Icons\person.png" />
-    <EmbeddedResource Include="Icons\phone.png" />
-    <EmbeddedResource Include="Icons\search.png" />
-    <EmbeddedResource Include="Icons\star.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FirebaseDatabase.net" Version="4.0.4" />
     <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
+    <PackageReference Include="FireSharp" Version="2.0.4" />
     <PackageReference Include="Plugin.Toast" Version="2.1.2" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.5" />
     <PackageReference Include="Xamarin.Auth" Version="1.7.0" />
