@@ -15,7 +15,8 @@ namespace MIAAppCrossPlatform.Models
 
 		private static IFirebaseConfig config = new FirebaseConfig
 		{
-			AuthSecret = "",//Password of Firebase to get data
+			AuthSecret = "Wszbmo22cRpHCY8mhZVyN5kAmaGdJK6qhLYvjWPa",//Password of Firebase to get data: use this(Wszbmo22cRpHCY8mhZVyN5kAmaGdJK6qhLYvjWPa)
+			// RequestTimeout = TimeSpan.FromSeconds(10f),
 			BasePath = "https://mia-database-45d86.firebaseio.com/"//Address of Firebase
 		};
 
@@ -26,8 +27,16 @@ namespace MIAAppCrossPlatform.Models
 
 		public static async Task<string> Login(string _id, string _password)
 		{
-			FirebaseResponse response = await Client.GetAsync("credentials/" + _id);
-			ProfileData result = response.ResultAs<ProfileData>();
+			ProfileData result = new ProfileData();
+			try
+			{
+				FirebaseResponse response = await Client.GetAsync("credentials/" + _id);//error here
+				result = response.ResultAs<ProfileData>();
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e);
+			}
 
 			bool isActive = LoginHandler.CheckAccountActive(result);
 			bool isNew = LoginHandler.CheckAccountNew(result);

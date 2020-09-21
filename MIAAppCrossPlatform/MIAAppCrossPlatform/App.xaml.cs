@@ -15,8 +15,6 @@ namespace MIAAppCrossPlatform
 {
 	public partial class App : Application
 	{
-		readonly FirebaseClient firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
-
 		public static string User_ID { get; set; }
 
 		public App()
@@ -24,11 +22,19 @@ namespace MIAAppCrossPlatform
 			InitializeComponent();
 
 			DependencyService.Register<MockDataStore>();
+			FirebaseHandler.ConfigureFirebase();
+			MainPage = new NavigationPage(new LogAndRegActivity());
 
+			_ = LoginAndNavigate();
+		}
 
-			if (AutoLogin(GetUsername().Result, GetPassword().Result))
+		private async Task LoginAndNavigate()
+		{
+			bool isAuthenticated = await AutoLogin(GetUsername(), GetPassword());
+
+			if (isAuthenticated)
 			{
-				User_ID = GetUsername().Result;
+				User_ID = GetUsername();
 				Console.WriteLine("Auto Accepted");
 				MainPage = new NavigationPage(new MainActivity());
 			}
@@ -39,18 +45,12 @@ namespace MIAAppCrossPlatform
 			}
 		}
 
-		private bool AutoLogin(string _username, string _password)
+		private async Task<bool> AutoLogin(string _username, string _password)
 		{
 			try
 			{
-				if (CheckPassword(_username, _password).Result && CheckAccountActive(_username).Result)
-				{
-					return true;
-				}
-				else
-				{
-					return false;
-				}
+				string result = await FirebaseHandler.Login(_username, _password);
+				return result.Equals("Logging In");
 			}
 			catch (Exception)
 			{
@@ -58,56 +58,36 @@ namespace MIAAppCrossPlatform
 			}
 		}
 
-		private async Task<string> GetUsername()
+		private string GetUsername()
 		{
-			return await SecureStorage.GetAsync("auto_user");
+			var task = Task.Run(() => (SecureStorage.GetAsync("auto_user")));
+			if (task.Wait(TimeSpan.FromSeconds(5)))
+			{
+				return task.Result;
+			}
+			else
+			{
+				throw new Exception("Get Username: Timed Out");
+			}
 		}
-		private async Task<string> GetPassword()
+		private string GetPassword()
 		{
-			return await SecureStorage.GetAsync("auto_pass");
-		}
-
-		private async Task<bool> CheckPassword(string _username, string _password)
-		{
-			return (await firebase
-				.Child("credentials")
-				.Child(_username)
-				.OnceAsync<ProfileData>()).Select(p => new ProfileData
-				{
-					Active = p.Object.Active,
-					Email = p.Object.Email,
-					Favorites = p.Object.Favorites,
-					Id = p.Object.Id,
-					Mobile = p.Object.Mobile,
-					Name = p.Object.Name,
-					Password = p.Object.Password,
-					Session = p.Object.Session,
-					Surname = p.Object.Surname
-				}).Where(q => q.Password.Contains(_password)).Equals(_password);
+			var task = Task.Run(() => (SecureStorage.GetAsync("auto_pass")));
+			if (task.Wait(TimeSpan.FromSeconds(5)))
+			{
+				return task.Result;
+			}
+			else
+			{
+				throw new Exception("Get Password: Timed Out");
+			}
 		}
 
-		private async Task<bool> CheckAccountActive(string _username)
-		{
-			return (await firebase
-				.Child("credentials")
-				.Child(_username)
-				.OnceAsync<ProfileData>()).Select(p => new ProfileData
-				{
-					Active = p.Object.Active,
-					Email = p.Object.Email,
-					Favorites = p.Object.Favorites,
-					Id = p.Object.Id,
-					Mobile = p.Object.Mobile,
-					Name = p.Object.Name,
-					Password = p.Object.Password,
-					Session = p.Object.Session,
-					Surname = p.Object.Surname
-				}).Where(q => q.Active.Contains("Yes")).Equals("Yes");
-		}
 
 
 		protected override void OnStart()
 		{
+			FirebaseHandler.ConfigureFirebase();
 		}
 
 		protected override void OnSleep()
