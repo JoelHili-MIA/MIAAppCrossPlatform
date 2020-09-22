@@ -17,5 +17,19 @@ namespace MIAAppCrossPlatform.Models
 		public List<SavingsSectionData> Savings { get; set; }
 		public string Session { get; set; }
 		public string Surname { get; set; }
+
+		public ProfileData()
+		{
+
+		}
+
+		public ProfileData(string _active, string _email, string _id, string _mobile, string _password )
+		{
+			Active = _active;
+			Email = _email;
+			Id = _id;
+			Mobile = _mobile;
+			Password = _password;
+		}
 	}
 }

@@ -24,20 +24,11 @@ namespace MIAAppCrossPlatform.Views
 			firebase = new FirebaseClient("https://mia-database-45d86.firebaseio.com");
 		}
 
-		private void Et_password_Focused(object sender, FocusEventArgs e)
+		private async Task<bool> IsValidID()
 		{
-			CrossToastPopUp.Current.ShowToastWarning("Password Policy: A minimum of 8 characters with a combination of Lowercase, uppercase and numbers.");
-			
-		}
+			ProfileData profile = await FirebaseHandler.GetProfile(et_idCard.Text);
 
-		private void Et_idCard_Focused(object sender, FocusEventArgs e)
-		{
-			CrossToastPopUp.Current.ShowToastWarning("Make sure you are part of the privilege scheme for MIA. Example of ab ID: 0123456M");
-		}
-
-		private bool IsValidID()
-		{
-			if (GetProfile().Result.Password.Equals("") && GetProfile().Result.Active.Equals("yes"))
+			if (profile.Password.Equals("") && profile.Active.Equals("yes"))
 			{
 				return true;
 			}
@@ -45,24 +36,6 @@ namespace MIAAppCrossPlatform.Views
 			{
 				return false;
 			}
-		}
-
-		private async Task<ProfileData> GetProfile()
-		{
-			return (ProfileData)(await firebase
-				.Child("credentials")
-				.OnceAsync<ProfileData>()).Select(i => new ProfileData
-				{
-					Active = i.Object.Active,
-					Email = i.Object.Email,
-					Favorites = i.Object.Favorites,
-					Id = i.Object.Id,
-					Mobile = i.Object.Mobile,
-					Name = i.Object.Name,
-					Password = i.Object.Password,
-					Session = i.Object.Session,
-					Surname = i.Object.Surname
-				}).Where(i => i.Id.Contains(et_idCard.Text));
 		}
 
 		private bool CheckEmail(string emailAddress)
@@ -113,6 +86,11 @@ namespace MIAAppCrossPlatform.Views
 
 		private void Btn_register_Clicked(object sender, EventArgs e)
 		{
+			_ = CheckValid();
+		}
+
+		private async Task CheckValid()
+		{
 			isCorrect = true;
 
 			//ID Card
@@ -124,7 +102,7 @@ namespace MIAAppCrossPlatform.Views
 				et_idCard.Placeholder = "Please enter your ID Card";
 				et_idCard.PlaceholderColor = Color.Red;
 			}
-			else if (!IsValidID())
+			else if (await IsValidID())
 			{
 				isCorrect = false;
 
@@ -168,7 +146,7 @@ namespace MIAAppCrossPlatform.Views
 				et_mobile.Placeholder = "Please enter your mobile number";
 				et_mobile.PlaceholderColor = Color.Red;
 			}
-			else if(et_mobile.Text.Length < 8)
+			else if (et_mobile.Text.Length < 8)
 			{
 				et_mobile.Text = "";
 				et_mobile.Placeholder = "Mobile number must be 8 digits long";
@@ -223,25 +201,29 @@ namespace MIAAppCrossPlatform.Views
 
 			if (isCorrect)
 			{
-				Register().Wait();
+				Register();
 			}
 		}
 
-		private async Task Register()
+		private void Register()
 		{
-			var toUpdate = (await firebase
-				.Child("credentials")
-				.OnceAsync<ProfileData>()).Where(i => i.Object.Id.Equals(et_idCard)).FirstOrDefault();
+			_ = FirebaseHandler.Register(new ProfileData("yes", et_email.Text, et_idCard.Text, et_mobile.Text, et_password.Text));
+		}
 
-			await firebase
-				.Child("credentials")
-				.Child(toUpdate.Key)
-				.PutAsync(new ProfileData() { 
-					Email = et_email.Text,
-					Id = et_idCard.Text,
-					Mobile = et_mobile.Text,
-					Password = et_password.Text
-				});
+		private void et_idCard_Unfocused(object sender, FocusEventArgs e)
+		{
+			if(et_idCard.Text == null)
+			{
+				CrossToastPopUp.Current.ShowToastMessage("Make sure you are part of the privilege scheme for MIA. Example of an ID: 0123456M", Plugin.Toast.Abstractions.ToastLength.Short);
+			}
+		}
+
+		private void et_password_Unfocused(object sender, FocusEventArgs e)
+		{
+			if (et_password.Text == null || !CheckPassword(et_password.Text))
+			{
+				CrossToastPopUp.Current.ShowToastMessage("Password Policy: A minimum of 8 characters with a combination of Lowercase, uppercase and numbers.", Plugin.Toast.Abstractions.ToastLength.Short);
+			}
 		}
 	}
 }

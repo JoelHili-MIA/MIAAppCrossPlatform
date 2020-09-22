@@ -15,6 +15,8 @@ namespace MIAAppCrossPlatform.Views
 		public LogAndRegActivity()
 		{
 			InitializeComponent();
+
+			NavigationPage.SetHasNavigationBar(this, false);
 		}
 	}
 }

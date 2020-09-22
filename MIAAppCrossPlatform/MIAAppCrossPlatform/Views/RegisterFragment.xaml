@@ -33,7 +33,7 @@
                 Placeholder="ID Card"
                 MaxLength="8"
                 FontSize="15"
-                Focused="Et_idCard_Focused"/>
+                Unfocused="et_idCard_Unfocused"/>
 
                 <Entry
                 x:Name="et_email"
@@ -60,7 +60,7 @@
                 Placeholder="Password"
                 IsPassword="True"
                 FontSize="15"
-                Focused="Et_password_Focused"/>
+                Unfocused="et_password_Unfocused"/>
 
                 <Entry
                 x:Name="et_repassword"
@@ -76,16 +76,7 @@
                 HorizontalOptions="Start"
                 VerticalOptions="Start"
                 Margin="30, 30, 30, 20"
-                Text="Validation Text"
                 FontSize="15"/>
-
-                <View
-                x:Name="divider"
-                HorizontalOptions="Fill"
-                VerticalOptions="End"
-                HeightRequest="0.5"
-                Margin="0, 0, 0, 15"
-                BackgroundColor="Black"/>
 
                 <Button
                 x:Name="btn_register"

@@ -30,7 +30,7 @@ namespace MIAAppCrossPlatform.Models
 			ProfileData result = new ProfileData();
 			try
 			{
-				FirebaseResponse response = await Client.GetAsync("credentials/" + _id);//error here
+				FirebaseResponse response = await Client.GetAsync("credentials/" + _id);
 				result = response.ResultAs<ProfileData>();
 			}
 			catch (Exception e)
@@ -60,6 +60,29 @@ namespace MIAAppCrossPlatform.Models
 			{
 				return "Incorrect ID Card or Password";
 			}
+		}
+
+		public static async Task Register(ProfileData _toRegister)
+		{
+			PushResponse response = await Client.PushAsync("credentials", _toRegister);
+			Console.WriteLine(response.Result.name);
+		}
+
+		public static async Task<ProfileData> GetProfile(string _id)
+		{
+			ProfileData result = new ProfileData();
+
+			try
+			{
+				FirebaseResponse response = await Client.GetAsync("credentials/" + _id);
+				result = response.ResultAs<ProfileData>();
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Error: " + e);
+			}
+
+			return result;
 		}
 	}
 }
