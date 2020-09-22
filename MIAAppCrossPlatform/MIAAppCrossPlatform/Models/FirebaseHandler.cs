@@ -38,8 +38,8 @@ namespace MIAAppCrossPlatform.Models
 				Console.WriteLine(e);
 			}
 
-			bool isActive = LoginHandler.CheckAccountActive(result);
-			bool isNew = LoginHandler.CheckAccountNew(result);
+			bool isActive = result.Active.Equals("yes");
+			bool isNew = result.Password.Length.Equals(0);
 
 			if (result.Password.Equals(_password))
 			{

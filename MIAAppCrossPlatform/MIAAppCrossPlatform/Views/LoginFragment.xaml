@@ -69,9 +69,8 @@
                         <Grid
                             x:Name="containerFeature"
                             HorizontalOptions="Fill"
-                            VerticalOptions="Center"
-                            HeightRequest="150"
-                            Margin="25, 0, 25, 20">
+                            VerticalOptions="Fill"                            
+                            Margin="25, 0, 25, 10">
 
                             <CheckBox
                                 x:Name="chkRemember"
@@ -105,8 +104,9 @@
                         <Label
                             x:Name="validationText"
                             HorizontalOptions="Center"
-                            VerticalOptions="End"
-                            FontSize="15"/>
+                            VerticalOptions="Center"
+                            FontSize="15"
+                            Margin="0"/>
 
                         <Button
                                 x:Name="btn_login"
@@ -114,7 +114,7 @@
                                 HeightRequest="60"
                                 HorizontalOptions="Center"
                                 VerticalOptions="End"
-                                Margin="8, 20, 8, 20"
+                                Margin="8, 10, 8, 10"
                                 Text="Sign in"
                                 FontSize="16"
                                 BackgroundColor="#AA0A2F"
@@ -125,6 +125,7 @@
                                 HorizontalOptions="Center"
                                 VerticalOptions="End"
                                 Margin="50, 0, 50, 20"
+                                MaxLines="1"
                                 Text="If you are new, register your account first."/>
                     </StackLayout>
                 </ScrollView>

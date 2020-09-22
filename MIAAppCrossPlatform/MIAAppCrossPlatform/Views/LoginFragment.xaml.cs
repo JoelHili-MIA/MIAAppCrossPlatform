@@ -23,16 +23,23 @@ namespace MIAAppCrossPlatform.Views
 
 		private void Btn_login_Clicked(object sender, EventArgs e)
 		{
-			string response = FirebaseHandler.Login(et_idCard.Text, et_password.Text).Result;
+			_ = loginTask();
+		}
+
+		private async Task loginTask()
+		{
+			string response = await FirebaseHandler.Login(et_idCard.Text, et_password.Text);
 
 			if (response.Equals("Logging In"))//Account is good
 			{
+				Console.WriteLine("Logging In");
+
 				if (chkRemember.IsChecked)
 				{
 					SaveAutoLogin().Wait();
 				}
 
-				new MainActivity();//Change to PostAsync
+				await Navigation.PushAsync(new MainActivity());
 			}
 			else
 			{
@@ -42,7 +49,12 @@ namespace MIAAppCrossPlatform.Views
 
 		private void Btn_forgotPassword_Clicked(object sender, EventArgs e)
 		{
-			new ForgotPasswordActivity();
+			_ = forgotPasswordTask();
+		}
+
+		private async Task forgotPasswordTask()
+		{
+			await Navigation.PushAsync(new ForgotPasswordActivity());
 		}
 
 		public static string prefsFile = "miaLog";
